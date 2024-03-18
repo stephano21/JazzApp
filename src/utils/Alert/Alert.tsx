@@ -11,7 +11,7 @@ import {AlertMultioptionsModal} from './AlertComponents/AlertMultioptionsModal';
 import {AlertPromtModal} from './AlertComponents/AlertPromtModal';
 import {AlertYesNoModal} from './AlertComponents/AlertYesNoModal';
 import {AxiosError} from 'axios';
-import {ApiErrorResponse} from '../../interfaces/BaseApiInterface';
+import {ApiErrorResponse} from '../../interfaces/ApiInterfaces';
 import {CheckInternetContext} from '../../context/CheckInternetContext';
 
 export type AlertTitleType =
@@ -104,8 +104,8 @@ const AlertComponent = forwardRef<AlertProps>((_props, ref) => {
           : typeof error.response?.data === 'object' &&
             typeof error.response.data.Message === 'string'
           ? error.response.data.Message // Si hay un error_description en el objeto JSON, úsalo
-          : typeof error.response?.data.error_description === 'string'
-          ? error.response.data.error_description // Agrega esta condición
+          : typeof error.response?.data.Error_description === 'string'
+          ? error.response.data.Error_description // Agrega esta condición
           : 'Ocurrió un error en la consulta'
         : error.response?.status! >= 500
         ? 'Ocurrió un error en el servidor'

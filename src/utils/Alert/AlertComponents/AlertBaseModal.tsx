@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, useWindowDimensions} from 'react-native';
 import {colores, styles} from '../../../theme/appTheme';
-import {BaseModal, BaseModalProps} from '../../../Template/BaseModal';
+import {BaseModal, BaseModalProps} from '../../../templates/BaseModal';
 
 export type AlertTitleType =
   | 'Aviso'

@@ -4,7 +4,7 @@ import ReactNativeBlobUtil from 'react-native-blob-util';
 import Pdf from 'react-native-pdf';
 import {ButtonWithText} from '../../components/BaseComponents/ButtonWithText';
 import {colores, styles} from '../../theme/appTheme';
-import {BaseModal, BaseModalProps} from '../../Template/BaseModal';
+import {BaseModal, BaseModalProps} from '../../templates/BaseModal';
 
 interface Props extends BaseModalProps {
   title: string;

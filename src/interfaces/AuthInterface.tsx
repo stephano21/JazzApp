@@ -17,3 +17,7 @@ export interface IUser {
     Role: string;
     Env: string;
 }
+export interface ILocation {
+    latitude: number;
+    longitude: number;
+}
