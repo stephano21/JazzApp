@@ -1,5 +1,5 @@
 export const Endpoints = {
-  BaseURL: 'https://dddc-157-100-158-182.ngrok-free.app',
+  BaseURL: 'https://e08e-157-100-158-182.ngrok-free.app',
   BaseApi: '/api',
   login: '/auth/login/',
   register: '/auth/register/',
