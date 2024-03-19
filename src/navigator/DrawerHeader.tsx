@@ -45,7 +45,7 @@ export const DrawerHeader = ({title = ''}: Props) => {
       />
       {title.length === 0 ? (
         <Image
-          source={require('../assets/banner.png')}
+          source={require('../assets/logo.png')}
           style={{
             height: '100%',
             width: '50%',

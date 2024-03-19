@@ -4,7 +4,7 @@ import {colores} from '../theme/appTheme';
 import {AuthContext} from '../context/AuthContext';
 import {useForm} from '../hooks/useForm';
 import {ButtonWithText} from '../components/BaseComponents/ButtonWithText';
-import {BaseScreen} from '../Templates/BaseScreen';
+import {BaseScreen} from '../templates/BaseScreen';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {Background} from './Background';
 import DeviceInfo from 'react-native-device-info';
@@ -36,7 +36,7 @@ export const LoginScreen = () => {
   return (
     <BaseScreen>
       <Image
-        source={require('../assets/logo.gif')}
+        source={require('../assets/logo.png')}
         style={{
           height: '30%',
           width: '80%',

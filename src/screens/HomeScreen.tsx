@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Text, Button} from 'react-native';
-import {BaseScreen} from '../Templates/BaseScreen';
+import {BaseScreen} from '../templates/BaseScreen';
 import {DocumentViewContext} from '../context/DocumentViewContext';
 
 import {useRequest} from '../api/useRequest';

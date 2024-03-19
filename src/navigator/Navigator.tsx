@@ -16,9 +16,11 @@ export const Navigator = () => {
   const {status} = useContext(AuthContext);
   const {permissions} = useContext(PermissionsContext);
 
-  if (permissions === 'unavailable' || status === 'checking')
+  if (permissions === 'unavailable' || status === 'checking'){
+    console.log('Navigator');
     return <LoadingScreen></LoadingScreen>;
-
+  }
+  console.log('Status:',status);
   return (
     <>
       {status === 'notauthenticated' ? (
@@ -64,38 +66,6 @@ export const Navigator = () => {
           ) : (
             <>
               <MenuLateral></MenuLateral>
-              {/* <>
-                <Stack.Navigator
-                  screenOptions={{
-                    headerShown: true,
-                    headerStyle: {
-                      backgroundColor: colores.azul,
-                    },
-                    headerTintColor: colores.blanco,
-                    cardStyle: {
-                      backgroundColor: colores.plomoclaro,
-                    },
-                  }}>
-                  <Stack.Screen
-                    name="HomeScreen"
-                    component={HomeScreen}
-                    options={{
-                      header: props => (
-                        <StackHeader title={'Mis Entregas'}></StackHeader>
-                      ),
-                    }}
-                  />
-                  <Stack.Screen
-                    name="NextScreen"
-                    component={NextScreen}
-                    options={{
-                      header: props => (
-                        <StackHeader title={'NextScreen'}></StackHeader>
-                      ),
-                    }}
-                  />
-                </Stack.Navigator>
-              </> */}
             </>
           )}
         </>

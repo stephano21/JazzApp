@@ -2,18 +2,18 @@ import React, {useEffect, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
 import {InputReadOnlyForm} from './InputReadOnlyForm';
 import {DateTypes, formatDate} from '../../helpers/DateTimeFormat';
-import {BaseInputProps} from '../../interfaces/ProjInterfaces';
+/* import {BaseInputProps} from '../../interfaces/ProjInterfaces';
 
-interface Props extends BaseInputProps<string> {
+interface Props extends BaseInputProps<unknown> {
   type: DateTypes;
-}
+} */
 
 export const DateTimePickerForm = ({
   placeholder,
   defaultValue = '',
   getValue,
   type = 'date',
-}: Props) => {
+}: any) => {
   const [open, setOpen] = useState(false);
   const [value, setvalue] = useState(defaultValue);
   useEffect(() => {

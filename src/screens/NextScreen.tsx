@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BaseScreen} from '../Templates/BaseScreen';
+import {BaseScreen} from '../templates/BaseScreen';
 import {Text} from 'react-native';
 import {SearchInput} from '../components/BaseComponents/SearchInput';
 import {

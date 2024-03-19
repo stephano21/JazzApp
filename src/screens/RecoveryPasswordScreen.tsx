@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BaseScreen} from '../Templates/BaseScreen';
+import {BaseScreen} from '../templates/BaseScreen';
 import {Text, View} from 'react-native';
 import {colores} from '../theme/appTheme';
 import {ButtonWithText} from '../components/BaseComponents/ButtonWithText';
@@ -23,7 +23,6 @@ export const RecoveryPasswordScreen = () => {
         placeholder={'Correo Electrónico'}
         defaultValue={email}
         keyboard={'email-address'}
-        //color={colores.plomo}
         getValue={value => setemail(value)}></InputForm>
       <View style={{height: 20, width: '100%'}}></View>
       <ButtonWithText

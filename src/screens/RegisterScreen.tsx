@@ -1,5 +1,5 @@
 import React from 'react';
-import {BaseScreen} from '../Templates/BaseScreen';
+import {BaseScreen} from '../templates/BaseScreen';
 import {Text} from 'react-native';
 import {colores} from '../theme/appTheme';
 import {useForm} from '../hooks/useForm';

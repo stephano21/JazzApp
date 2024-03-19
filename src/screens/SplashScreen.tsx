@@ -24,7 +24,7 @@ export const SplashScreen = () => {
         backgroundColor: colores.primario,
       }}>
       <Animated.Image
-        source={require('../assets/splash.png')}
+        source={require('../assets/logo.png')}
         style={{
           opacity,
           transform: [{translateY: position}, {scale}],

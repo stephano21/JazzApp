@@ -11,13 +11,8 @@ import {StackOption} from './StackOption';
 import {DrawerHeader} from './DrawerHeader';
 import {NextScreen} from '../screens/NextScreen';
 import {Tabs} from './Tabs';
-/* import {RayadosScreen} from '../screens/RayadosScreen';
-import {SocketScreen} from '../screens/SocketScreen';
-import {DinamicQuestionsScreen} from '../screens/DinamicQuestionsScreen'; */
 import {Alert} from '../utils/Alert/Alert';
 import {IconComponent} from '../components/BaseComponents/IconComponent';
-/* import {DynamicCamera} from '../screens/DynamicCamera';
-import { ProfileScreen } from '../screens/ProfileScreen'; */
 
 const Drawer = createDrawerNavigator();
 
@@ -37,14 +32,7 @@ export const MenuLateral = () => {
       }}>
       <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="NextScreen" component={NextScreen} />
-      {/* <Drawer.Screen name="RayadosScreen" component={RayadosScreen} />
-      <Drawer.Screen name="SocketScreen" component={SocketScreen} />
-      <Drawer.Screen
-        name="DinamicQuestionsScreen"
-        component={DinamicQuestionsScreen}
-      />
-      <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
-      <Drawer.Screen name="DynamicCamera" component={DynamicCamera} /> */}
+      
     </Drawer.Navigator>
   );
 };
@@ -62,37 +50,7 @@ const MenuItems = [
     name: 'Next Screen',
     title: 'Next Screen',
     route: 'NextScreen',
-  },
-  {
-    icon: iconos.IonicIcons.imagen,
-    name: 'Rayados',
-    title: 'Rayados',
-    route: 'RayadosScreen',
-  },
-  {
-    icon: iconos.IonicIcons.advertencia,
-    name: 'Socket',
-    title: 'Socket',
-    route: 'SocketScreen',
-  },
-  {
-    icon: iconos.IonicIcons.lista,
-    name: 'Preguntas dinamicas',
-    title: 'Preguntas dinamicas',
-    route: 'DinamicQuestionsScreen',
-  },
-  {
-    icon: iconos.IonicIcons.camara,
-    name: 'Camara Dinamica',
-    title: 'Camara Dinamica',
-    route: 'DynamicCamera',
-  },
-  {
-    icon: iconos.IonicIcons.perfil,
-    name: 'Profile',
-    title: 'Profile',
-    route: 'ProfileScreen',
-  },
+  }
 ];
 
 const MenuInterno = ({navigation, state}: DrawerContentComponentProps) => {
@@ -119,13 +77,7 @@ const MenuInterno = ({navigation, state}: DrawerContentComponentProps) => {
         <View style={{...styles.avatarContainer}}>
           <View
             style={{...styles.sombra, ...styles.avatar, overflow: 'hidden'}}>
-            <Image
-              style={{
-                ...styles.avatar,
-                backgroundColor: colores.blanco,
-                resizeMode: 'contain',
-              }}
-              source={require('../assets/logo.gif')}></Image>
+            
             <View
               style={{
                 flexDirection: 'row',
