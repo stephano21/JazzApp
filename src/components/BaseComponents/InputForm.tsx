@@ -39,7 +39,7 @@ export const InputForm = ({
   const [value, setvalue] = useState(defaultValue);
   const [isPasswordSecure, setisPasswordSecure] = useState(securetextentry);
   useEffect(() => {
-    getValue(value);
+    getValue(value || '');
   }, [value]);
 
   return (

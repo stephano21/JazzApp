@@ -1,11 +1,11 @@
 import React from 'react';
-import {BaseScreen} from '../templates/BaseScreen';
-import {Text} from 'react-native';
-import {colores} from '../theme/appTheme';
-import {useForm} from '../hooks/useForm';
-import {ButtonWithText} from '../components/BaseComponents/ButtonWithText';
-import {useNavigation} from '@react-navigation/native';
-import {InputForm} from '../components/BaseComponents/InputForm';
+import { BaseScreen } from '../templates/BaseScreen';
+import { Text } from 'react-native';
+import { colores } from '../theme/appTheme';
+import { useForm } from '../hooks/useForm';
+import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
+import { useNavigation } from '@react-navigation/native';
+import { InputForm } from '../components/BaseComponents/InputForm';
 
 export const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -28,58 +28,54 @@ export const RegisterScreen = () => {
     CheckPassword: '',
   });
   return (
-    <BaseScreen isScroll={true} style={{justifyContent: 'center'}}>
-      <Text style={{color: colores.plomo, fontSize: 22, marginBottom: '10%'}}>
+    <BaseScreen isScroll={true} style={{ justifyContent: 'center' }}>
+      <Text style={{ color: colores.plomo, fontSize: 22, marginBottom: '10%' }}>
         ¡Regístrese!
       </Text>
       <InputForm
         placeholder={'Nombres'}
-        value={Nombres}
         keyboard={'email-address'}
         color={colores.plomo}
-        onChange={value => onChange(value, 'Nombres')}></InputForm>
+        getValue={value => { }} />
       <InputForm
         color={colores.plomo}
         placeholder={'Apellidos'}
         securetextentry={true}
-        value={Apellidos}
-        onChange={value => onChange(value, 'Apellidos')}></InputForm>
+        getValue={value => { }} />
+
       <ButtonWithText
         color={colores.secundario}
-        anyfunction={() => {}}
+        anyfunction={() => { }}
         title={'TOMAR FOTO DE PERFIL'}></ButtonWithText>
       <InputForm
         color={colores.plomo}
         placeholder={'Identificación'}
         securetextentry={true}
-        value={Identificacion}
-        onChange={value => onChange(value, 'Identificacion')}></InputForm>
+        getValue={value => { }}
+      />
+
       <InputForm
         color={colores.plomo}
         placeholder={'Número de teléfono'}
         securetextentry={true}
-        value={Telefono}
-        onChange={value => onChange(value, 'Telefono')}></InputForm>
+        getValue={value => { }} />
       <InputForm
         color={colores.plomo}
         placeholder={'Email'}
         securetextentry={true}
-        value={Email}
-        onChange={value => onChange(value, 'Email')}></InputForm>
+        getValue={value => { }} />
       <InputForm
         color={colores.plomo}
         placeholder={'Contraseña'}
         securetextentry={true}
-        value={Password}
-        onChange={value => onChange(value, 'Password')}></InputForm>
+        getValue={value => { }} />
       <InputForm
         color={colores.plomo}
         placeholder={'Confirmar Contraseña'}
         securetextentry={true}
-        value={CheckPassword}
-        onChange={value => onChange(value, 'CheckPassword')}></InputForm>
+        getValue={value => { }} />
       <ButtonWithText
-        anyfunction={() => {}}
+        anyfunction={() => { }}
         title={'REGISTRAR CUENTA'}></ButtonWithText>
       <ButtonWithText
         anyfunction={() => navigation.goBack()}
