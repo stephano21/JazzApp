@@ -15,7 +15,7 @@ export const NextScreen = () => {
   return (
     <BaseScreen>
       <>
-        
+        <Text>Next screen</Text>
       </>
     </BaseScreen>
   );

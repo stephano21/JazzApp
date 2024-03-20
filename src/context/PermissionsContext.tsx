@@ -1,5 +1,5 @@
-import React, {createContext, useEffect, useState} from 'react';
-import {AppState, Platform} from 'react-native';
+import React, { createContext, useEffect, useState } from 'react';
+import { AppState, Platform } from 'react-native';
 import {
   check,
   openSettings,
@@ -21,6 +21,7 @@ type PermissionsContextProps = {
 
 let AndroidPermissions: Permission[] = [
   PERMISSIONS.ANDROID.CAMERA,
+  PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
   //PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
 ];
 const androidSDKVersion = Platform.OS === 'android' ? Platform.Version : 0;
@@ -33,17 +34,17 @@ if (androidSDKVersion <= 29) {
 if (androidSDKVersion <= 32) {
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
 }
-if (androidSDKVersion >= 33) {
+/* if (androidSDKVersion >= 33) {
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_IMAGES);
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO);
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_VIDEO);
-}
+} */
 
 let IosPermissions: Permission[] = [PERMISSIONS.IOS.LOCATION_WHEN_IN_USE];
 
 export const PermissionsContext = createContext({} as PermissionsContextProps);
 
-export const PermissionsProvider = ({children}: any) => {
+export const PermissionsProvider = ({ children }: any) => {
   const [permissions, setpermissions] =
     useState<PermissionStatus>('unavailable');
 

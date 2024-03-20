@@ -10,6 +10,9 @@ import {colores} from '../theme/appTheme';
 import {StackHeader} from './StackHeader';
 import {RegisterScreen} from '../screens/RegisterScreen';
 import {RecoveryPasswordScreen} from '../screens/RecoveryPasswordScreen';
+import { NextScreen } from '../screens/NextScreen';
+import { DrawerHeader } from './DrawerHeader';
+import { Tabs } from './Tabs';
 
 const Stack = createStackNavigator();
 export const Navigator = () => {
@@ -65,7 +68,37 @@ export const Navigator = () => {
             <WelcomeScreen></WelcomeScreen>
           ) : (
             <>
-              <MenuLateral></MenuLateral>
+             <>
+                <Stack.Navigator
+                  screenOptions={{
+                    headerShown: true,
+                    headerStyle: {
+                      backgroundColor: colores.azul,
+                    },
+                    headerTintColor: colores.blanco,
+                    cardStyle: {
+                      backgroundColor: colores.plomoclaro,
+                    },
+                  }}>
+                  <Stack.Screen
+                    name="Tabs"
+                    component={Tabs}
+                    options={{
+                      header: prop => <DrawerHeader title={''}></DrawerHeader>,
+                    }}
+                  />
+
+                  <Stack.Screen
+                    name="NextScreen"
+                    component={NextScreen}
+                    options={{
+                      header: props => (
+                        <StackHeader title={'NextScreen'}></StackHeader>
+                      ),
+                    }}
+                  />
+                </Stack.Navigator>
+              </>
             </>
           )}
         </>

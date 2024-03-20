@@ -15,8 +15,8 @@ let user = '';
 let pass = '';
 
 if (__DEV__) {
-  user = 'geo@smoke.com';
-  pass = 'Smoke123*+';
+  user = 'schang';
+  pass = 'Test2020*+';
 }
 
 export const LoginScreen = () => {
@@ -60,6 +60,7 @@ export const LoginScreen = () => {
       <InputForm
         placeholder={'Contraseña'}
         securetextentry={true}
+        color={colores.plomo}
         defaultValue={password}
         getValue={value => onChange(value, 'password')}></InputForm>
       <ButtonWithText

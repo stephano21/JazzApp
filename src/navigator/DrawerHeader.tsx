@@ -12,6 +12,8 @@ import {sleep} from '../helpers/sleep';
 import {Loader} from '../utils/Loader/Loader';
 import {IconComponent} from '../components/BaseComponents/IconComponent';
 import {IconButton} from '../components/BaseComponents/IconButton';
+import { AuthContext } from '../context/AuthContext';
+import { Alert } from '../utils/Alert/Alert';
 
 interface Props {
   title?: string;
@@ -24,6 +26,16 @@ export const DrawerHeader = ({title = ''}: Props) => {
     Loader.show();
     await sleep(2).then(Loader.hide);
   };
+  const {logOut} = useContext(AuthContext);
+  let username = 'React Native';
+
+  const logout = () => {
+    Alert.show('yesno', {
+      title: 'Aviso',
+      message: '¿Desea cerrar sesión?',
+      OkFunction: logOut,
+    });
+  };
 
   return (
     <View
@@ -35,14 +47,25 @@ export const DrawerHeader = ({title = ''}: Props) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
       }}>
-      <IconButton
-        style={{height: 50, width: 50, backgroundColor: 'red'}}
-        icon={iconos.IonicIcons.menu}
-        size={30}
-        color={colores.primario}
-        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-        iconType={'IonicIcon'}
-      />
+      <TouchableOpacity onPress={logout} style={{paddingVertical: 15}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <IconComponent
+              iconType="IonicIcon"
+              icon={iconos.IonicIcons.logout}
+              size={25}
+              color={colores.primario}
+            />
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: 'bold',
+                marginLeft: 5,
+                color: colores.primario,
+              }}>
+              Cerrar Sesión
+            </Text>
+          </View>
+        </TouchableOpacity>
       {title.length === 0 ? (
         <Image
           source={require('../assets/logo.png')}
