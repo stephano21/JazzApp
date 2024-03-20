@@ -122,25 +122,7 @@ const MenuInterno = ({navigation, state}: DrawerContentComponentProps) => {
           borderTopWidth: 0.88,
           borderTopColor: colores.primarioclaro,
         }}>
-        <TouchableOpacity onPress={logout} style={{paddingVertical: 15}}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <IconComponent
-              iconType="IonicIcon"
-              icon={iconos.IonicIcons.logout}
-              size={25}
-              color={colores.primario}
-            />
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: 'bold',
-                marginLeft: 5,
-                color: colores.primario,
-              }}>
-              Cerrar Sesión
-            </Text>
-          </View>
-        </TouchableOpacity>
+        
       </View>
     </>
   );
