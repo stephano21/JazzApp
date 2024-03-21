@@ -1,16 +1,14 @@
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {LoginScreen} from '../screens/LoginScreen';
+import {LoginScreen} from '../screens/Auth/LoginScreen';
 import {AuthContext} from '../context/AuthContext';
 import {LoadingScreen} from '../screens/LoadingScreen';
-import {WelcomeScreen} from '../screens/WelcomeScreen';
+import {WelcomeScreen} from '../screens/Auth/WelcomeScreen';
 import {PermissionsContext} from '../context/PermissionsContext';
-import {MenuLateral} from './MenuLateral';
 import {colores} from '../theme/appTheme';
 import {StackHeader} from './StackHeader';
-import {RegisterScreen} from '../screens/RegisterScreen';
-import {RecoveryPasswordScreen} from '../screens/RecoveryPasswordScreen';
-import { NextScreen } from '../screens/NextScreen';
+import {RegisterScreen} from '../screens/Auth/RegisterScreen';
+import {RecoveryPasswordScreen} from '../screens/Auth/RecoveryPasswordScreen';
 import { DrawerHeader } from './DrawerHeader';
 import { Tabs } from './Tabs';
 
@@ -88,15 +86,7 @@ export const Navigator = () => {
                     }}
                   />
 
-                  <Stack.Screen
-                    name="NextScreen"
-                    component={NextScreen}
-                    options={{
-                      header: props => (
-                        <StackHeader title={'NextScreen'}></StackHeader>
-                      ),
-                    }}
-                  />
+                  
                 </Stack.Navigator>
               </>
             </>

@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
 import {View, Keyboard, Text, Image, useWindowDimensions} from 'react-native';
-import {colores} from '../theme/appTheme';
-import {AuthContext} from '../context/AuthContext';
-import {useForm} from '../hooks/useForm';
-import {ButtonWithText} from '../components/BaseComponents/ButtonWithText';
-import {BaseScreen} from '../templates/BaseScreen';
+import {colores} from '../../theme/appTheme';
+import {AuthContext} from '../../context/AuthContext';
+import {useForm} from '../../hooks/useForm';
+import {ButtonWithText} from '../../components/BaseComponents/ButtonWithText';
+import {BaseScreen} from '../../templates/BaseScreen';
 import {CommonActions, useNavigation} from '@react-navigation/native';
-import {Background} from './Background';
+import {Background} from '../Background';
 import DeviceInfo from 'react-native-device-info';
-import {InputForm} from '../components/BaseComponents/InputForm';
-import {TextButton} from '../components/BaseComponents/TextButton';
+import {InputForm} from '../../components/BaseComponents/InputForm';
+import {TextButton} from '../../components/BaseComponents/TextButton';
 
 let user = '';
 let pass = '';
@@ -36,7 +36,7 @@ export const LoginScreen = () => {
   return (
     <BaseScreen>
       <Image
-        source={require('../assets/logo.png')}
+        source={require('../../assets/logo.png')}
         style={{
           height: '30%',
           width: '80%',

@@ -5,8 +5,8 @@ import {colores} from '../theme/appTheme';
 import {Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {HomeScreen} from '../screens/HomeScreen';
-import {NextScreen} from '../screens/NextScreen';
 import {iconos} from '../theme/appTheme';
+import { ProfileScreen } from '../screens/ProfileScreen';
 
 const TabOptions = [
   {
@@ -14,24 +14,24 @@ const TabOptions = [
     title: 'Inicio',
     icon: iconos.IonicIcons.home,
     component: HomeScreen,
-  },
+  },/* 
   {
     name: 'NextScreen',
     title: 'Busqueda',
     icon: iconos.IonicIcons.lupa,
     component: NextScreen,
-  },
+  }, 
   {
     name: 'Next2Screen',
     title: 'Favoritos',
     icon: iconos.IonicIcons.favorito,
     component: NextScreen,
-  },
+  },*/
   {
-    name: 'Next3Screen',
+    name: 'ProfileScreen',
     title: 'Perfil',
     icon: 'aperture-outline',
-    component: NextScreen,
+    component: ProfileScreen,
   },
 ];
 

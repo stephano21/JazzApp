@@ -40,7 +40,7 @@ export const DrawerHeader = ({title = ''}: Props) => {
   return (
     <View
       style={{
-        height: 50,
+        height: 55,
         width: '100%',
         backgroundColor: colores.blanco,
         ...styles.centerItems,
@@ -62,7 +62,7 @@ export const DrawerHeader = ({title = ''}: Props) => {
                 marginLeft: 5,
                 color: colores.primario,
               }}>
-              Cerrar Sesión
+              {/* Cerrar Sesión */}
             </Text>
           </View>
         </TouchableOpacity>

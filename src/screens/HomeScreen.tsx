@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Text, Button} from 'react-native';
+import {Text, Button, StyleSheet, View, useWindowDimensions} from 'react-native';
 import {BaseScreen} from '../templates/BaseScreen';
 import {DocumentViewContext} from '../context/DocumentViewContext';
 
@@ -10,6 +10,10 @@ import {SearchInput} from '../components/BaseComponents/SearchInput';
 import {Alert} from '../utils/Alert/Alert';
 import {sleep} from '../helpers/sleep';
 import {Loader} from '../utils/Loader/Loader';
+import { colores } from '../theme/appTheme';
+import { ScrollView } from 'react-native-gesture-handler';
+import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
+import { List } from '../components/BaseComponents/List';
 
 const AvisoSelector = [
   {
@@ -46,6 +50,7 @@ const AvisoSelector = [
 ];
 
 export const HomeScreen = () => {
+  const {width} = useWindowDimensions();
   const {showDocument} = useContext(DocumentViewContext);
   const {postRequest} = useRequest();
 
@@ -55,12 +60,47 @@ export const HomeScreen = () => {
   const pruebafuncionconvalue = (text: string) => {
     console.log('prueba de OkFunction con parametro: ', text);
   };
-
+  const TodoList = (lectura: any) => {
+    // Itera a través de las propiedades del objeto GlobalLecturas y muestra sus valores
+    return (
+      <View style={{...lecturasStyles.rutaContainer, width: width * 0.8}}>
+        <View key={lectura.Id_Planta} style={{flexDirection: 'column'}}>
+          <View
+            style={{
+              alignItems: 'flex-end',
+              width: width * 0.65,
+            }}>
+            <Text style={lecturasStyles.routeCod}>{lectura.planta}</Text>
+          </View>
+          <Text style={lectura.Observacion!=""?lecturasStyles.route:lecturasStyles.routeEmpty}>{lectura.Observacion!=""?lectura.Observacion:"No hay observación"}</Text>
+        </View>
+      </View>
+    );
+  };
   
 
   return (
     <BaseScreen>
-      <Text>HomeScreen</Text>
+    <SearchInput
+        placeholder={'Buscador de prueba'}
+        catalog={AvisoSelector}
+        textCompare={item => [item.nombre, item.codigo, item.descripcion]}
+        result={items => console.log(items)}></SearchInput>
+      <ScrollView >
+      <List
+        data={AvisoSelector}
+        refreshFunction={() => {}}
+        renderItem={TodoList}
+        ListEmptyText="No hay lecturas por visualizar"
+      />
+      {AvisoSelector.map((item, index) => (
+       
+          <ButtonWithText title={item.nombre} anyfunction={()=>{}}>
+          </ButtonWithText>
+          
+      ))}
+      </ScrollView>
+      {/* <Text >dfgdfgdf</Text>
       <Button
         title="Alerta"
         onPress={() =>
@@ -144,12 +184,42 @@ export const HomeScreen = () => {
         selectedItem={item => {}}
         placeholder={'Selecciona un Item'}
         textItem={({nombre}) => nombre}></Selector>
-
-      <SearchInput
-        placeholder={'Buscador de prueba'}
-        catalog={AvisoSelector}
-        textCompare={item => [item.nombre, item.codigo, item.descripcion]}
-        result={items => console.log(items)}></SearchInput>
+ */}
+      
     </BaseScreen>
   );
 };
+const lecturasStyles = StyleSheet.create({
+  rutaContainer: {
+    height: '90%',
+    flex: 1,
+    //...styles.sombra,
+    marginBottom: 10,
+    backgroundColor: colores.plomo ,
+    borderRadius:10,
+  },
+  route: {
+    fontSize: 16,
+    marginBottom: 4,
+    marginHorizontal: 5,
+    marginLeft:20,
+    padding:5,
+    color: colores.negro,
+  },
+  routeEmpty: {
+    fontSize: 11,
+    marginBottom: 4,
+    marginHorizontal: 5,
+    marginLeft:20,
+    padding:5,
+    color: colores.negro,
+    fontStyle:"italic",
+  },
+  routeCod: {
+    fontSize: 16,
+    fontWeight:"bold",
+    marginBottom: 4,
+    color: colores.primario,
+    marginTop:5,
+  },
+});

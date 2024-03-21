@@ -1,11 +1,11 @@
 import React from 'react';
-import { BaseScreen } from '../templates/BaseScreen';
+import { BaseScreen } from '../../templates/BaseScreen';
 import { Text } from 'react-native';
-import { colores } from '../theme/appTheme';
-import { useForm } from '../hooks/useForm';
-import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
+import { colores } from '../../theme/appTheme';
+import { useForm } from '../../hooks/useForm';
+import { ButtonWithText } from '../../components/BaseComponents/ButtonWithText';
 import { useNavigation } from '@react-navigation/native';
-import { InputForm } from '../components/BaseComponents/InputForm';
+import { InputForm } from '../../components/BaseComponents/InputForm';
 
 export const RegisterScreen = () => {
   const navigation = useNavigation();

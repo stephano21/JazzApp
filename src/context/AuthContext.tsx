@@ -77,8 +77,6 @@ export const AuthProvider = ({children}: any) => {
 
   const signIn = async ({username, password}: ILogin) => {
     setstatus('authenticated');
-    //return;
-    // Function to login
     if (username.length === 0 || password.length === 0) {
       // If email or password not exist
       Alert.show('default', {
@@ -96,6 +94,7 @@ export const AuthProvider = ({children}: any) => {
     await postRequestToken<IUser>(dataUsuario)
       .then(async UserData => {
         await SaveUserInfo(UserData); // Save token in asyncstorage
+        console.warn(UserData);
         setUserData(UserData); // Set token in context
         setstatus('authenticated');
       })
