@@ -19,7 +19,7 @@ export const StackHeader = ({title}: Props) => {
       style={{
         height: 50,
         width: '100%',
-        backgroundColor: colores.primarioclaro,
+        backgroundColor: colores.primario,
         ...styles.centerItems,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -31,7 +31,7 @@ export const StackHeader = ({title}: Props) => {
         iconType={'IonicIcon'}
         icon={iconos.IonicIcons.atras}
       />
-      <Text style={{...styles.textButtonBold, fontSize: 18}}>{title}</Text>
+      <Text style={{ fontSize: 18, color:colores.blanco, fontWeight:"bold"}}>{title}</Text>
       <View style={{height: 50, width: 50}}></View>
     </View>
   );

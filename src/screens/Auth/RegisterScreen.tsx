@@ -1,6 +1,6 @@
 import React from 'react';
 import { BaseScreen } from '../../templates/BaseScreen';
-import { Text } from 'react-native';
+import { Image, Text } from 'react-native';
 import { colores } from '../../theme/appTheme';
 import { useForm } from '../../hooks/useForm';
 import { ButtonWithText } from '../../components/BaseComponents/ButtonWithText';
@@ -29,54 +29,47 @@ export const RegisterScreen = () => {
     CheckPassword: '',
   });
   return (
-    <BaseScreen isScroll={true} style={{ justifyContent: 'center' }}>
-      <Text style={{ color: colores.plomo, fontSize: 22, marginBottom: '10%' }}>
-        ¡Regístrese!
-      </Text>
+    <BaseScreen isScroll={true} alignItems="flex-end" style={{ justifyContent: 'flex-end' }}>
+      <Image
+        source={require('../../assets/logo.png')}
+        style={{
+          height: '20%',
+          width: '80%',
+          marginTop: '35%',
+          marginBottom: '5%',
+          resizeMode: 'contain',
+          alignSelf: 'center',
+        }}></Image>
       <InputForm
         placeholder={'Nombres'}
-        keyboard={'email-address'}
         color={colores.plomo}
         getValue={value => { }} />
       <InputForm
         color={colores.plomo}
         placeholder={'Apellidos'}
-        securetextentry={true}
+        
         getValue={value => { }} />
-
-      <ButtonWithText
-        color={colores.secundario}
-        anyfunction={() => { }}
-        title={'TOMAR FOTO DE PERFIL'}></ButtonWithText>
+      
       <InputForm
         color={colores.plomo}
-        placeholder={'Identificación'}
-        securetextentry={true}
-        getValue={value => { }}
-      />
-
-      <InputForm
-        color={colores.plomo}
-        placeholder={'Número de teléfono'}
-        securetextentry={true}
-        getValue={value => { }} />
-      <InputForm
-        color={colores.plomo}
+        keyboard={'email-address'}
         placeholder={'Email'}
-        securetextentry={true}
+        
         getValue={value => { }} />
       <InputForm
         color={colores.plomo}
+        securetextentry={true}
         placeholder={'Contraseña'}
-        securetextentry={true}
         getValue={value => { }} />
       <InputForm
         color={colores.plomo}
-        placeholder={'Confirmar Contraseña'}
         securetextentry={true}
+        placeholder={'Confirmar Contraseña'}
+        
         getValue={value => { }} />
       <ButtonWithText
         anyfunction={() => { }}
+        width={'100%'}
         title={'REGISTRAR CUENTA'}></ButtonWithText>
         <TextButton
           title={'¿Ya tienes una cuenta? ¡Iniciar sesión!'}
