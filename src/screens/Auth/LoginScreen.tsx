@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
-import {View, Keyboard, Text, Image, useWindowDimensions} from 'react-native';
-import {colores} from '../../theme/appTheme';
-import {AuthContext} from '../../context/AuthContext';
-import {useForm} from '../../hooks/useForm';
-import {ButtonWithText} from '../../components/BaseComponents/ButtonWithText';
-import {BaseScreen} from '../../templates/BaseScreen';
-import {CommonActions, useNavigation} from '@react-navigation/native';
-import {Background} from '../Background';
+import React, { useContext } from 'react';
+import { View, Keyboard, Text, Image, useWindowDimensions, StyleSheet } from 'react-native';
+import { colores } from '../../theme/appTheme';
+import { AuthContext } from '../../context/AuthContext';
+import { useForm } from '../../hooks/useForm';
+import { ButtonWithText } from '../../components/BaseComponents/ButtonWithText';
+import { BaseScreen } from '../../templates/BaseScreen';
+import { CommonActions, useNavigation } from '@react-navigation/native';
+import { Background } from '../Background';
 import DeviceInfo from 'react-native-device-info';
-import {InputForm} from '../../components/BaseComponents/InputForm';
-import {TextButton} from '../../components/BaseComponents/TextButton';
+import { InputForm } from '../../components/BaseComponents/InputForm';
+import { TextButton } from '../../components/BaseComponents/TextButton';
 
 let user = '';
 let pass = '';
@@ -20,37 +20,38 @@ if (__DEV__) {
 }
 
 export const LoginScreen = () => {
-  const {signIn} = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
   const navigation = useNavigation();
 
-  const {username, password, onChange} = useForm({
+  const { username, password, onChange } = useForm({
     username: user,
     password: pass,
   });
 
   const Login = async () => {
     Keyboard.dismiss();
-    await signIn({username, password});
+    await signIn({ username, password });
   };
 
   return (
-    <BaseScreen>
+    <BaseScreen alignItems="flex-start">
       <Image
         source={require('../../assets/logo.png')}
         style={{
-          height: '30%',
+          height: '20%',
           width: '80%',
           resizeMode: 'contain',
           alignSelf: 'center',
         }}></Image>
       <Text
         style={{
-          color: colores.plomo,
-          marginBottom: '15%',
-          fontSize: 30,
-          textAlign: 'center',
+          color: colores.primario,
+          fontWeight: 'bold',
+          marginBottom: '5%',
+          fontSize: 25,
+          textAlign: 'left',
         }}>
-        Proyecto Base React Native
+        Login
       </Text>
       <InputForm
         placeholder={'Usuario'}
@@ -64,6 +65,8 @@ export const LoginScreen = () => {
         defaultValue={password}
         getValue={value => onChange(value, 'password')}></InputForm>
       <ButtonWithText
+        color={colores.primario}
+        width={'100%'}
         anyfunction={() => Login()}
         title={'INICIAR SESIÓN'}></ButtonWithText>
       <View
@@ -71,20 +74,27 @@ export const LoginScreen = () => {
           alignSelf: 'flex-end',
           alignItems: 'flex-end',
         }}>
-        <TextButton
-          title={'¿No tienes cuenta? ¡Registrate!'}
-          anyfunction={() =>
-            navigation.dispatch(CommonActions.navigate('RegisterScreen'))
-          }></TextButton>
+
         <TextButton
           title={'Recuperar cuenta'}
+
           anyfunction={() =>
             navigation.dispatch(
               CommonActions.navigate('RecoveryPasswordScreen'),
             )
           }></TextButton>
       </View>
+      <View style={{
+        alignContent: "center",
+        width: '100%',
+      }}>
+        <TextButton
+          title={'¿No tienes cuenta? ¡Registrate!'}
+          anyfunction={() =>
+            navigation.dispatch(CommonActions.navigate('RegisterScreen'))
+          }></TextButton>
 
+      </View>
       <Background></Background>
     </BaseScreen>
   );

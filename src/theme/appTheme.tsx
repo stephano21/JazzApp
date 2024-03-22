@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const colores = {
   blanco: '#ffffff',
-  primario: '#62ddff',
+  primario: '#eb4034',
   primarioclaro: '#e5f5ff',
   secundario: '#f7aa21',
   darkTransparent: 'rgba(0,0,0,0.5)',

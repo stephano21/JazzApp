@@ -4,8 +4,9 @@ import { Text } from 'react-native';
 import { colores } from '../../theme/appTheme';
 import { useForm } from '../../hooks/useForm';
 import { ButtonWithText } from '../../components/BaseComponents/ButtonWithText';
-import { useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { InputForm } from '../../components/BaseComponents/InputForm';
+import { TextButton } from '../../components/BaseComponents/TextButton';
 
 export const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -77,9 +78,11 @@ export const RegisterScreen = () => {
       <ButtonWithText
         anyfunction={() => { }}
         title={'REGISTRAR CUENTA'}></ButtonWithText>
-      <ButtonWithText
-        anyfunction={() => navigation.goBack()}
-        title={'REGRESAR'}></ButtonWithText>
+        <TextButton
+          title={'¿Ya tienes una cuenta? ¡Iniciar sesión!'}
+          anyfunction={() =>
+            navigation.dispatch(CommonActions.navigate('LoginScreen'))
+          }></TextButton>
     </BaseScreen>
   );
 };

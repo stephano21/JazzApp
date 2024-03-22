@@ -8,8 +8,9 @@ interface Props {
   children: JSX.Element | JSX.Element[];
   style?: StyleProp<ViewStyle>;
   isScroll?: boolean;
+  alignItems?: 'center' | 'flex-start' | 'flex-end';
 }
-export const BaseScreen = ({children, style = {}, isScroll = false}: Props) => {
+export const BaseScreen = ({children, style = {}, isScroll = false, alignItems="center"}: Props) => {
   const isFocused = useIsFocused();
   const {fadeIn, opacity} = useAnimation();
   useEffect(() => {
@@ -25,7 +26,7 @@ export const BaseScreen = ({children, style = {}, isScroll = false}: Props) => {
       {isScroll ? (
         <ScrollView
           contentContainerStyle={{
-            alignItems: 'center',
+            alignItems: alignItems,
             padding: 20,
             ...(style as any),
           }}>
@@ -34,7 +35,7 @@ export const BaseScreen = ({children, style = {}, isScroll = false}: Props) => {
       ) : (
         <View
           style={{
-            alignItems: 'center',
+            alignItems: alignItems,
             ...styles.globalmargin,
             ...(style as any),
           }}>

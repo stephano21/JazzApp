@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {HomeScreen} from '../screens/HomeScreen';
 import {iconos} from '../theme/appTheme';
 import { ProfileScreen } from '../screens/ProfileScreen';
+import { TaskScreen } from '../screens/TaskScreen';
 
 const TabOptions = [
   {
@@ -20,13 +21,13 @@ const TabOptions = [
     title: 'Busqueda',
     icon: iconos.IonicIcons.lupa,
     component: NextScreen,
-  }, 
+  }, */
   {
-    name: 'Next2Screen',
+    name: 'Tareas',
     title: 'Favoritos',
     icon: iconos.IonicIcons.favorito,
-    component: NextScreen,
-  },*/
+    component: TaskScreen,
+  },
   {
     name: 'ProfileScreen',
     title: 'Perfil',

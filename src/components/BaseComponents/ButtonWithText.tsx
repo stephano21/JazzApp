@@ -9,7 +9,7 @@ interface Props {
   color?: string;
   colorTexto?: string;
   icon?: string;
-  width?: number;
+  width?: number|string;
 }
 
 export const ButtonWithText = ({

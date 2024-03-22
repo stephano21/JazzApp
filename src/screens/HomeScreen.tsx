@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
-import {Text, Button, StyleSheet, View, useWindowDimensions} from 'react-native';
-import {BaseScreen} from '../templates/BaseScreen';
-import {DocumentViewContext} from '../context/DocumentViewContext';
+import React, { useContext } from 'react';
+import { Text, Button, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { BaseScreen } from '../templates/BaseScreen';
+import { DocumentViewContext } from '../context/DocumentViewContext';
 
-import {useRequest} from '../api/useRequest';
-import {Endpoints} from '../api/routes';
-import {Selector} from '../components/BaseComponents/Selector';
-import {SearchInput} from '../components/BaseComponents/SearchInput';
-import {Alert} from '../utils/Alert/Alert';
-import {sleep} from '../helpers/sleep';
-import {Loader} from '../utils/Loader/Loader';
+import { useRequest } from '../api/useRequest';
+import { Endpoints } from '../api/routes';
+import { Selector } from '../components/BaseComponents/Selector';
+import { SearchInput } from '../components/BaseComponents/SearchInput';
+import { Alert } from '../utils/Alert/Alert';
+import { sleep } from '../helpers/sleep';
+import { Loader } from '../utils/Loader/Loader';
 import { colores } from '../theme/appTheme';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
@@ -48,11 +48,42 @@ const AvisoSelector = [
     descripcion: 'Aviso quinto',
   },
 ];
-
+const tasksList = [
+  {
+    id: 1,
+    title: "Comprar víveres",
+    description: "Ir al supermercado y comprar los alimentos para la semana."
+  },
+  {
+    id: 2,
+    title: "Preparar presentación",
+    description: "Preparar la presentación para la reunión del equipo el jueves."
+  },
+  {
+    id: 3,
+    title: "Llamar al cliente X",
+    description: "Llamar al cliente X para discutir los detalles del proyecto."
+  },
+  {
+    id: 4,
+    title: "Enviar informe mensual",
+    description: "Preparar y enviar el informe mensual al jefe de departamento."
+  },
+  {
+    id: 5,
+    title: "Hacer ejercicio",
+    description: "Ir al gimnasio y hacer ejercicio durante una hora."
+  },
+  {
+    id: 6,
+    title: "Leer capítulo 5",
+    description: "Leer el capítulo 5 del libro de historia para la clase de mañana."
+  }
+];
 export const HomeScreen = () => {
-  const {width} = useWindowDimensions();
-  const {showDocument} = useContext(DocumentViewContext);
-  const {postRequest} = useRequest();
+  const { width } = useWindowDimensions();
+  const { showDocument } = useContext(DocumentViewContext);
+  const { postRequest } = useRequest();
 
   const pruebafuncion = () => {
     console.log('prueba de OkFunction sin parametro');
@@ -63,42 +94,36 @@ export const HomeScreen = () => {
   const TodoList = (lectura: any) => {
     // Itera a través de las propiedades del objeto GlobalLecturas y muestra sus valores
     return (
-      <View style={{...lecturasStyles.rutaContainer, width: width * 0.8}}>
-        <View key={lectura.Id_Planta} style={{flexDirection: 'column'}}>
+      <View style={{ ...lecturasStyles.rutaContainer, width: width * 0.8 }}>
+        <View key={lectura.id} style={{ flexDirection: 'column' }}>
           <View
             style={{
               alignItems: 'flex-end',
               width: width * 0.65,
             }}>
-            <Text style={lecturasStyles.routeCod}>{lectura.planta}</Text>
+            <Text style={lecturasStyles.routeCod}>{lectura.title}</Text>
           </View>
-          <Text style={lectura.Observacion!=""?lecturasStyles.route:lecturasStyles.routeEmpty}>{lectura.Observacion!=""?lectura.Observacion:"No hay observación"}</Text>
+          <Text style={lectura.description != "" ? lecturasStyles.route : lecturasStyles.routeEmpty}>{lectura.description != "" ? lectura.description : "No hay observación"}</Text>
         </View>
       </View>
     );
   };
-  
+
 
   return (
     <BaseScreen>
-    <SearchInput
+      <SearchInput
         placeholder={'Buscador de prueba'}
         catalog={AvisoSelector}
         textCompare={item => [item.nombre, item.codigo, item.descripcion]}
         result={items => console.log(items)}></SearchInput>
       <ScrollView >
-      <List
-        data={AvisoSelector}
-        refreshFunction={() => {}}
-        renderItem={TodoList}
-        ListEmptyText="No hay lecturas por visualizar"
-      />
-      {AvisoSelector.map((item, index) => (
-       
-          <ButtonWithText title={item.nombre} anyfunction={()=>{}}>
-          </ButtonWithText>
-          
-      ))}
+        <List
+          data={tasksList}
+          refreshFunction={() => { }}
+          renderItem={TodoList}
+          ListEmptyText="No hay lecturas por visualizar"
+        />
       </ScrollView>
       {/* <Text >dfgdfgdf</Text>
       <Button
@@ -185,7 +210,7 @@ export const HomeScreen = () => {
         placeholder={'Selecciona un Item'}
         textItem={({nombre}) => nombre}></Selector>
  */}
-      
+
     </BaseScreen>
   );
 };
@@ -195,31 +220,31 @@ const lecturasStyles = StyleSheet.create({
     flex: 1,
     //...styles.sombra,
     marginBottom: 10,
-    backgroundColor: colores.plomo ,
-    borderRadius:10,
+    backgroundColor: colores.plomo,
+    borderRadius: 10,
   },
   route: {
     fontSize: 16,
     marginBottom: 4,
     marginHorizontal: 5,
-    marginLeft:20,
-    padding:5,
+    marginLeft: 20,
+    padding: 5,
     color: colores.negro,
   },
   routeEmpty: {
     fontSize: 11,
     marginBottom: 4,
     marginHorizontal: 5,
-    marginLeft:20,
-    padding:5,
+    marginLeft: 20,
+    padding: 5,
     color: colores.negro,
-    fontStyle:"italic",
+    fontStyle: "italic",
   },
   routeCod: {
     fontSize: 16,
-    fontWeight:"bold",
+    fontWeight: "bold",
     marginBottom: 4,
     color: colores.primario,
-    marginTop:5,
+    marginTop: 5,
   },
 });
