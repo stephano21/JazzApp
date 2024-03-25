@@ -14,7 +14,7 @@ export const useRequest = () => {
   const ApiTokenRequest = axios.create({
     baseURL: Endpoints.BaseURL +Endpoints.BaseApi+ Endpoints.login,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
     },
     method: 'POST',
   });

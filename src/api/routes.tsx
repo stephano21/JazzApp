@@ -1,5 +1,5 @@
 export const Endpoints = {
-  BaseURL: 'https://1dfe-157-100-158-182.ngrok-free.app',
+  BaseURL: 'https://743e-157-100-158-182.ngrok-free.app',
   BaseApi: '/api',
   login: '/auth/login/',
   register: '/auth/register/',
@@ -8,6 +8,7 @@ export const Endpoints = {
   perfil: '/auth/porfile/',
   Lectura: '/lecturas/',
   Plantas: '/plantas/',
+  Task: '/Task',
 };
 //TODO: modificar esoto
 export const checkEnviroment =

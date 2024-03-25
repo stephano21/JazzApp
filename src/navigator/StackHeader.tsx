@@ -1,10 +1,7 @@
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View} from 'react-native';
 import {colores, iconos, styles} from '../theme/appTheme';
-import Icon from 'react-native-vector-icons/Ionicons';
-import appinfo from '../../package.json';
 import {useNavigation} from '@react-navigation/native';
-import {IconComponent} from '../components/BaseComponents/IconComponent';
 import {IconButton} from '../components/BaseComponents/IconButton';
 
 interface Props {

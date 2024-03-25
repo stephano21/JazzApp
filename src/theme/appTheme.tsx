@@ -8,12 +8,13 @@ export const colores = {
   darkTransparent: 'rgba(0,0,0,0.5)',
   darkLoader: 'rgba(0,0,0,0.75)',
   whiteTransparent: 'rgba(255,255,255,0.8)',
-  negro: 'black',
+  negro: '#000000',
   plomo: 'grey',
   plomoclaro: '#ededed80',
   rojo: '#eb4034',
-  azul: '#20397a',
+  azul: '#05299E',
   verde: '#16c40c',
+  rojoClaro:'#FFE7E7',
 };
 
 export const iconos = {

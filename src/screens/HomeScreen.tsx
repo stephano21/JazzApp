@@ -14,6 +14,7 @@ import { colores } from '../theme/appTheme';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
 import { List } from '../components/BaseComponents/List';
+import { useTasks } from '../hooks/useTasks';
 
 const AvisoSelector = [
   {
@@ -84,6 +85,7 @@ export const HomeScreen = () => {
   const { width } = useWindowDimensions();
   const { showDocument } = useContext(DocumentViewContext);
   const { postRequest } = useRequest();
+  const {GetTasks} = useTasks();
 
   const pruebafuncion = () => {
     console.log('prueba de OkFunction sin parametro');
@@ -218,10 +220,10 @@ const lecturasStyles = StyleSheet.create({
   rutaContainer: {
     height: '90%',
     flex: 1,
-    //...styles.sombra,
     marginBottom: 10,
-    backgroundColor: colores.plomo,
+    backgroundColor: colores.rojoClaro,
     borderRadius: 10,
+    
   },
   route: {
     fontSize: 16,
@@ -244,7 +246,7 @@ const lecturasStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 4,
-    color: colores.primario,
+    color: colores.negro,
     marginTop: 5,
   },
 });

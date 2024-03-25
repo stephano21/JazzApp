@@ -51,7 +51,9 @@ const TabsAndroid = () => {
     <TabAndroid.Navigator
       sceneAnimationEnabled={true}
       barStyle={{backgroundColor: colores.blanco}}
-      activeColor={colores.secundario}
+      style={{marginBottom: 10}}
+      activeColor={colores.primario}
+      activeIndicatorStyle={{backgroundColor: colores.rojoClaro, borderRadius: 20}}
       inactiveColor={colores.plomo}>
       {TabOptions.map(({name, title, icon, component}, index) => (
         <TabAndroid.Screen
@@ -60,7 +62,7 @@ const TabsAndroid = () => {
           options={{
             title,
             tabBarIcon: () => (
-              <Icon name={icon} size={25} color={colores.secundario} />
+              <Icon name={icon} size={25} color={colores.primario} />
             ),
           }}
           component={component}

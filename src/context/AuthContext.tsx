@@ -6,6 +6,7 @@ import {useStorage} from '../data/useStorage';
 import {useRequest} from '../api/useRequest';
 import {IUser} from '../interfaces/AuthInterface';
 import {Alert} from '../utils/Alert/Alert';
+import { Endpoints } from '../api/routes';
 
 type AuthContextProps = {
   status: StatusTypes;
@@ -85,16 +86,14 @@ export const AuthProvider = ({children}: any) => {
       });
       return;
     }
-    const dataUsuario = queryString.stringify({
-      // Stringify data
-      grant_type: 'password',
+    const dataUsuario:ILogin = ({
       username,
       password,
     });
-    await postRequestToken<IUser>(dataUsuario)
+    await postRequest<IUser>(Endpoints.login,dataUsuario)
       .then(async UserData => {
         await SaveUserInfo(UserData); // Save token in asyncstorage
-        console.warn(UserData);
+        //console.warn(UserData);
         setUserData(UserData); // Set token in context
         setstatus('authenticated');
       })

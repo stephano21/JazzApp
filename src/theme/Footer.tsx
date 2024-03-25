@@ -20,7 +20,7 @@ export const Footer = () => {
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: `${colores.azul}90`,
+        backgroundColor: `${colores.negro}90`,
         paddingHorizontal: '4.5%',
       }}>
       <IconComponent
