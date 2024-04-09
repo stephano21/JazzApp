@@ -7,6 +7,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 interface Props extends BaseModalProps {
   children: JSX.Element | JSX.Element[];
+  butons?: JSX.Element | JSX.Element[];
   isScroll?: boolean;
 }
 
@@ -14,6 +15,7 @@ export const BaseViewModal = ({
   CloseFunction,
   isVisible,
   children,
+  butons,
   isScroll = false,
 }: Props) => {
   const [dimensions, setDimensions] = useState({width: 0, height: 0});
@@ -40,6 +42,7 @@ export const BaseViewModal = ({
           style={{
             ...styles.globalmargin,
             ...styles.sombra,
+            
           }}
           onLayout={event =>
             setDimensions({
@@ -66,10 +69,12 @@ export const BaseViewModal = ({
             justifyContent: 'space-between',
           }}>
           <ButtonWithText
+          
             color={colores.rojo}
             anyfunction={CloseFunction}
             width={100}
             title={'Cerrar'}></ButtonWithText>
+            {butons}
         </View>
       </View>
     </BaseModal>

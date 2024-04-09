@@ -45,7 +45,7 @@ export const useRequest = () => {
     params?: object,
   ): Promise<T> => {
     Loader.show();
-    return await axios
+    return await ApiRequest
       .get(endpoint, { params })
       .then(({ data }: AxiosResponse<T>) => data)
       .catch((error: AxiosError<ApiErrorResponse>) => {
