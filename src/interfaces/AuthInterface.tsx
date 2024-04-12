@@ -13,7 +13,7 @@ export interface IRegister {
 }
 export interface IUser {
     Username: string;
-    Auth: IToken;
+    auth: IToken;
     Role: string;
     Env: string;
 }

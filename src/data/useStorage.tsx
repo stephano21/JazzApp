@@ -1,12 +1,12 @@
-import {IUser} from '../interfaces/AuthInterface';
-import {useBaseStorage} from './useBaseStorage';
+import { IUser } from '../interfaces/AuthInterface';
+import { useBaseStorage } from './useBaseStorage';
 
 const keyStorage = {
   UserData: 'UserData',
 };
 
 export const useStorage = () => {
-  const {SaveData, GetData, CheckData, DeleteData, RemoveData} =
+  const { SaveData, GetData, CheckData, DeleteData, RemoveData } =
     useBaseStorage();
 
   //#region UserData
@@ -20,5 +20,5 @@ export const useStorage = () => {
 
   const RemoveAllData = async () => RemoveData([keyStorage.UserData]);
 
-  return {SaveUserInfo, GetUserInfo, ChecUserInfo, RemoveAllData};
+  return { SaveUserInfo, GetUserInfo, ChecUserInfo, RemoveAllData };
 };

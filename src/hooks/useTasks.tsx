@@ -4,7 +4,7 @@ import { Endpoints } from "../api/routes";
 import { useState } from "react";
 
 export const useTasks = () => {
-    const { postRequest, getRequest } = useRequest();
+    const { postRequest, getRequest,putRequest, deleteRequest } = useRequest();
     const [task, setTask] = useState<ITask[]>([]);
     const GetTasks = async (): Promise<ITask[]> => {
         return await getRequest<ITask[]>(Endpoints.Task).then(
@@ -23,7 +23,7 @@ export const useTasks = () => {
         );
     };
     const DeleteTask = async (id: number): Promise<ITask> => {
-        return await postRequest<ITask>(Endpoints.Task + `/${id}`).then(
+        return await deleteRequest<ITask>(Endpoints.Task + `/${id}`).then(
             async TodoList => {
                 setTask([...task, TodoList]);
                 return TodoList; // Devolvemos el valor y  se usa inmediatamente.
@@ -31,7 +31,7 @@ export const useTasks = () => {
         );
     }
     const UpdateTask = async (SingleTask: ITask): Promise<ITask> => {
-        return await postRequest<ITask>(Endpoints.Task, SingleTask).then(
+        return await putRequest<ITask>(Endpoints.Task, SingleTask).then(
             async TodoList => {
                 setTask([...task, TodoList]);
                 return TodoList; // Devolvemos el valor y  se usa inmediatamente.

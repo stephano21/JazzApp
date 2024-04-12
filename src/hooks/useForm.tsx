@@ -13,6 +13,6 @@ export const useForm = <T extends {[key: string]: any}>(initState: T) => {
     ...state,
     setState,
     form: state,
-    onChange,
+    onChange, 
   };
 };

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text, Button, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Text, Button, StyleSheet, View, useWindowDimensions, RefreshControl } from 'react-native';
 import { BaseScreen } from '../templates/BaseScreen';
 import { DocumentViewContext } from '../context/DocumentViewContext';
-
 import { useRequest } from '../api/useRequest';
 import { Endpoints } from '../api/routes';
 import { Selector } from '../components/BaseComponents/Selector';
@@ -20,41 +19,7 @@ import { BaseModal } from '../templates/BaseModal';
 import { InputForm } from '../components/BaseComponents/InputForm';
 import { useForm } from '../hooks/useForm';
 import { BaseViewModal } from '../templates/BaseViewModal';
-
-const AvisoSelector = [
-  {
-    id: 1,
-    nombre: 'Aviso 1',
-    codigo: '0123456',
-    descripcion: 'Aviso primero',
-  },
-  {
-    id: 2,
-    nombre: 'Aviso 2',
-    codigo: '05468974',
-    descripcion: 'Aviso segundo',
-  },
-  {
-    id: 3,
-    nombre: 'Aviso 3',
-    codigo: '0123456',
-    descripcion: 'Aviso tercero',
-  },
-
-  {
-    id: 4,
-    nombre: 'Aviso 4',
-    codigo: '05468974',
-    descripcion: 'Aviso cuarto',
-  },
-  {
-    id: 5,
-    nombre: 'Aviso 5',
-    codigo: '05468592',
-    descripcion: 'Aviso quinto',
-  },
-];
-/*  */
+import { Card } from '../components/BaseComponents/Card';
 
 export const HomeScreen = () => {
   const [Task, setTask] = useState<ITask>({
@@ -63,95 +28,122 @@ export const HomeScreen = () => {
   });
   const ResetForm = () => {
     setTask({
+      id: 0,
       title: '',
       description: ''
     });
   };
-  const { title, description, onChange } = useForm({
-    
+  const { title, description, id, onChange } = useForm({
+    id: Task.id,
     title: Task.title,
     description: Task.description,
   });
   const { width } = useWindowDimensions();
   const { showDocument } = useContext(DocumentViewContext);
   const { postRequest } = useRequest();
-  const { GetTasks,AddTask } = useTasks();
+  const { GetTasks, AddTask,UpdateTask,DeleteTask } = useTasks();
   const [tasksList, setTasksList] = useState<ITask[]>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [edit, setEdit] = useState(false);
   const pruebafuncion = () => {
     console.log('prueba de OkFunction sin parametro');
   };
   const pruebafuncionconvalue = (text: string) => {
     console.log('prueba de OkFunction con parametro: ', text);
   };
-  const TodoList = (lectura: ITask) => {
-    // Itera a través de las propiedades del objeto GlobalLecturas y muestra sus valores
-    return (
-      <View style={{ ...lecturasStyles.rutaContainer, width: width * 0.8 }}>
-        <View key={lectura.id} style={{ flexDirection: 'column' }}>
-          <View
-            style={{
-              alignItems: 'flex-end',
-              width: width * 0.65,
-            }}>
-            <Text style={lecturasStyles.routeCod}>{lectura.title}</Text>
-          </View>
-          <Text style={lectura.description != "" ? lecturasStyles.route : lecturasStyles.routeEmpty}>{lectura.description != "" ? lectura.description : "No hay observación"}</Text>
-        </View>
-      </View>
-    );
+  const [refresh, setRefresh] = useState(false);
+
+  const handleRefresh = () => {
+    console.log('refreshing');
+    setRefresh(true);
+    loadData();
+    setRefresh(false);
   };
+  const ConfirmDelete = (data:ITask) => {
+    Alert.show('yesno', {
+      title: 'Aviso',
+      message: `¿Esta seguro de eliminar ${data.title}?`,
+      OkFunction: (DeleteTask(data?.id)),
+    });
+  };
+  const CardList = (lecturas: ITask[]) => {
+    return (
+      <ScrollView style={{ width: "90%" }}
+      refreshControl={<RefreshControl refreshing={refresh} onRefresh={handleRefresh} />}>
+        {lecturas.map((item, index) => {
+          return (
+            <Card
+              onLongPress={() => {
+                loadData();
+                ConfirmDelete(item) }}
+              onPress={() => {
+                setEdit(true)
+                setTask(item);
+                setIsModalVisible(true)
+              }}
+              key={index}
+              title={item.title}
+              description={item.description}
+            />
+          );
+        }
+        )}
+      </ScrollView>
+    )
+  }
   const SendTask = async () => {
-    setTask({
+
+    let data: ITask = {
+      id: Task.id,
       title: title,
       description: description
-    })
-    console.log(Task);
-    AddTask(Task);
+    }
+    edit?UpdateTask(data): AddTask(data);
+    setEdit(false)
+    console.log(data);
     loadData();
     ResetForm();
+    setIsModalVisible(false);
   }
   const loadData = async () => {
     setTasksList(await GetTasks());
-
   };
   useEffect(() => {
     loadData();
   }, []);
+
   const openModal = () => {
     setIsModalVisible(true);
     console.log("Modal abierto")
 
-  }
-  function HandleChange(value: string, arg1: string): void {
-    throw new Error('Function not implemented.');
   }
 
   return (
     <BaseScreen>
       <SearchInput
         placeholder={'Buscador de prueba'}
-        catalog={AvisoSelector}
-        textCompare={item => [item.nombre, item.codigo, item.descripcion]}
+        catalog={tasksList}
+        textCompare={item => [item.title, item.description]}
         result={items => console.log(items)}></SearchInput>
 
-      <List
-        data={tasksList}
-        refreshFunction={() => loadData()}
-        renderItem={TodoList}
-        ListEmptyText="You do not have any tasks yet."
-      />
+      {CardList(tasksList)}
+
       <ButtonWithText
         icon='add-outline'
+        color='transparent'
+        redondo={true}
         anyfunction={() => openModal()}>
 
       </ButtonWithText>
       <>
         {isModalVisible && (
           <BaseViewModal
-
+            title={edit ? 'Edit task' : 'Add Task'}
             isVisible={isModalVisible}
-            CloseFunction={() => setIsModalVisible(false)}
+            CloseFunction={() => {
+              setEdit(false);
+              setIsModalVisible(false);
+            }}
             butons={
               <ButtonWithText
                 icon='rocket-outline'
@@ -177,6 +169,7 @@ export const HomeScreen = () => {
             <ButtonWithText
               title='Add Task'
               width={'100%'}
+              icon='rocket-outline'
               anyfunction={() => SendTask()}></ButtonWithText>
           </BaseViewModal>
         )}

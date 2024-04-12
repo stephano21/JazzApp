@@ -1,30 +1,31 @@
-import React, {useContext} from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {LoginScreen} from '../screens/Auth/LoginScreen';
-import {AuthContext} from '../context/AuthContext';
-import {LoadingScreen} from '../screens/LoadingScreen';
-import {WelcomeScreen} from '../screens/Auth/WelcomeScreen';
-import {PermissionsContext} from '../context/PermissionsContext';
-import {colores} from '../theme/appTheme';
-import {StackHeader} from './StackHeader';
-import {RegisterScreen} from '../screens/Auth/RegisterScreen';
-import {RecoveryPasswordScreen} from '../screens/Auth/RecoveryPasswordScreen';
+import React, { useContext } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { LoginScreen } from '../screens/Auth/LoginScreen';
+import { AuthContext } from '../context/AuthContext';
+import { LoadingScreen } from '../screens/LoadingScreen';
+import { WelcomeScreen } from '../screens/Auth/WelcomeScreen';
+import { PermissionsContext } from '../context/PermissionsContext';
+import { colores } from '../theme/appTheme';
+import { StackHeader } from './StackHeader';
+import { RegisterScreen } from '../screens/Auth/RegisterScreen';
+import { RecoveryPasswordScreen } from '../screens/Auth/RecoveryPasswordScreen';
 import { DrawerHeader } from './DrawerHeader';
 import { Tabs } from './Tabs';
 
 const Stack = createStackNavigator();
 export const Navigator = () => {
-  const {status} = useContext(AuthContext);
-  const {permissions} = useContext(PermissionsContext);
+  const { status, UserData } = useContext(AuthContext);
+  const { permissions } = useContext(PermissionsContext);
 
-  if (permissions === 'unavailable' || status === 'checking'){
+  if (permissions === 'unavailable' || status === 'checking') {
     console.log('Navigator');
     return <LoadingScreen></LoadingScreen>;
   }
-  console.log('Status:',status);
+  console.log('Status:', status);
+  console.log(UserData.auth.access_Token);
   return (
     <>
-      {status === 'notauthenticated' ? (
+      { (UserData?.auth?.access_Token ?? '').length === 0 ? (
         <>
           <Stack.Navigator
             screenOptions={{
@@ -66,7 +67,7 @@ export const Navigator = () => {
             <WelcomeScreen></WelcomeScreen>
           ) : (
             <>
-             <>
+              <>
                 <Stack.Navigator
                   screenOptions={{
                     headerShown: true,
@@ -86,7 +87,7 @@ export const Navigator = () => {
                     }}
                   />
 
-                  
+
                 </Stack.Navigator>
               </>
             </>

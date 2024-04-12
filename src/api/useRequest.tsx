@@ -24,14 +24,14 @@ export const useRequest = () => {
     baseURL: Endpoints.BaseURL + Endpoints.BaseApi,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${UserData?.Auth?.access_token ?? ''}`,
+      Authorization: `Bearer ${UserData?.auth?.access_Token ?? ''}`,
     },
   });
   const ApiPostFileRequest = axios.create({
     baseURL: Endpoints.BaseURL,
     headers: {
       'Content-Type': 'multipart/form-data',
-      Authorization: `Bearer  ${UserData?.Auth?.access_token ?? ''}`,
+      Authorization: `Bearer  ${UserData?.auth?.access_Token ?? ''}`,
       otherHeader: 'foo',
     },
   });
@@ -45,6 +45,8 @@ export const useRequest = () => {
     params?: object,
   ): Promise<T> => {
     Loader.show();
+    console.log("Token???",UserData?.auth?.access_Token);
+
     return await ApiRequest
       .get(endpoint, { params })
       .then(({ data }: AxiosResponse<T>) => data)
@@ -63,7 +65,43 @@ export const useRequest = () => {
     params?: object,
   ): Promise<T> => {
     Loader.show();
+    console.log("Token???",UserData?.auth?.access_Token);
     return await ApiRequest.post(endpoint, data, { params })
+      .then(({ data }: AxiosResponse<T>) => data)
+      .catch((error: AxiosError<ApiErrorResponse>) => {
+        Alert.showApiError(error);
+        throw error;
+      })
+      .finally(() => {
+        Loader.hide();
+      });
+  };
+
+  const putRequest = async <T extends unknown>(
+    endpoint: string,
+    data?: object,
+    params?: object,
+  ): Promise<T> => {
+    Loader.show();
+    console.log("Token???",UserData?.auth?.access_Token);
+    return await ApiRequest.put(endpoint, data, { params })
+      .then(({ data }: AxiosResponse<T>) => data)
+      .catch((error: AxiosError<ApiErrorResponse>) => {
+        Alert.showApiError(error);
+        throw error;
+      })
+      .finally(() => {
+        Loader.hide();
+      });
+  };
+  const deleteRequest = async <T extends unknown>(
+    endpoint: string,
+    data?: object,
+    params?: object,
+  ): Promise<T> => {
+    Loader.show();
+    console.log("Token???",UserData?.auth?.access_Token);
+    return await ApiRequest.delete(endpoint, { params })
       .then(({ data }: AxiosResponse<T>) => data)
       .catch((error: AxiosError<ApiErrorResponse>) => {
         Alert.showApiError(error);
@@ -112,5 +150,5 @@ export const useRequest = () => {
 
   //#endregion
 
-  return { getRequest, postRequestToken, postRequest, postFileRequest };
+  return { getRequest, postRequestToken, postRequest, postFileRequest, putRequest,deleteRequest };
 };

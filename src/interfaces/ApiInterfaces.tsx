@@ -1,6 +1,6 @@
 export interface IToken {
-    access_token: string;
-    refresh_token: string;
+    access_Token: string;
+    refresh_Token: string;
   }
   //ApirError
   

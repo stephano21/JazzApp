@@ -24,14 +24,18 @@ export const AuthProvider = ({children}: any) => {
   const {SaveUserInfo, GetUserInfo, ChecUserInfo, RemoveAllData} = useStorage();
   const {postRequest, postRequestToken} = useRequest();
   const [status, setstatus] = useState<StatusTypes>('checking');
-  const [UserData, setUserData] = useState<IUser>({} as IUser);
+  const [UserData, setUserData] = useState<IUser>({
+    Username: '',
+    auth: {
+      access_Token: '',
+      refresh_Token: '',
+    },
+    Role: '',
+    Env: '',
+  });
 
   useEffect(() => {
     checkToken();
-    /* AppState.addEventListener('change', state => {
-      if (state !== 'active') return;
-      checkVersionApp();
-    }); */
   }, []);
 
   /**
@@ -43,12 +47,14 @@ export const AuthProvider = ({children}: any) => {
     await sleep(2);
     await ChecUserInfo().then(check =>
       check
-        ? GetUserInfo().then(UserData => {
-            setUserData(UserData);
-            setstatus('authenticated');
-          })
+        ? GetUserInfo().then(Data  => {
+          console.log('Data',Data);
+          setUserData(Data);
+          setstatus('authenticated');
+        })
         : setstatus('notauthenticated'),
-    );
+      );
+      console.log('Data',UserData);
   };
 
   /*   const checkVersionApp = async () => {
@@ -91,11 +97,11 @@ export const AuthProvider = ({children}: any) => {
       password,
     });
     await postRequest<IUser>(Endpoints.login,dataUsuario)
-      .then(async UserData => {
-        await SaveUserInfo(UserData); // Save token in asyncstorage
-        //console.warn(UserData);
-        setUserData(UserData); // Set token in context
+      .then(async Data => {
+        await SaveUserInfo(Data); // Save token in asyncstorage
+        setUserData(Data); // Set token in context
         setstatus('authenticated');
+        console.log('loginnnnn',UserData);
       })
       .catch(() => {});
   };

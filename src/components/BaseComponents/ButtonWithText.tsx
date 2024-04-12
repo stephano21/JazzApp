@@ -29,12 +29,12 @@ export const ButtonWithText = ({
 }: Props) => {
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.9}
       onPress={anyfunction}
       style={{
         marginVertical: 14,
         ...styles.centerItems,
-        ...styles.sombra,
+        //...styles.sombra,
         backgroundColor: color,
         borderRadius: 10,
         alignSelf: 'center',
@@ -50,6 +50,7 @@ export const ButtonWithText = ({
           ...styles.centerItems,
           borderRadius: redondo ? 40 : 0,
           backgroundColor: bagraundIcon,
+          
         }}>
 
           <Icon name={icon} size={tamañoIcon} color={colores.blanco}></Icon>
