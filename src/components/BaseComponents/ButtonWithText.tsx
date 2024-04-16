@@ -14,11 +14,13 @@ interface Props {
   bagraundIcon?: string;
   tamañoIcon?: number;
   redondo?: boolean;
+  disabled?: boolean;
 }
 
 export const ButtonWithText = ({
   anyfunction,
   title,
+  disabled = false,
   color = colores.primario,
   colorTexto = colores.blanco,
   icon = '',
@@ -29,13 +31,13 @@ export const ButtonWithText = ({
 }: Props) => {
   return (
     <TouchableOpacity
-      activeOpacity={0.9}
-      onPress={anyfunction}
+      activeOpacity={disabled?1:0.9}
+      onPress={disabled?()=>{}:anyfunction}
       style={{
         marginVertical: 14,
         ...styles.centerItems,
         //...styles.sombra,
-        backgroundColor: color,
+        backgroundColor: disabled?colores.plomo:color,
         borderRadius: 10,
         alignSelf: 'center',
         flexDirection: 'row',

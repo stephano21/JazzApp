@@ -59,11 +59,16 @@ export const HomeScreen = () => {
     loadData();
     setRefresh(false);
   };
+  const handleDelete = async (id: number|undefined)=> {
+    if(id === undefined) return "No se puede eliminar";
+    await DeleteTask(id);
+    loadData();
+  }
   const ConfirmDelete = (data:ITask) => {
     Alert.show('yesno', {
       title: 'Aviso',
       message: `¿Esta seguro de eliminar ${data.title}?`,
-      OkFunction: (DeleteTask(data?.id)),
+      OkFunction: (value: string | number | undefined) => handleDelete(data.id),
     });
   };
   const CardList = (lecturas: ITask[]) => {
@@ -91,16 +96,17 @@ export const HomeScreen = () => {
       </ScrollView>
     )
   }
+  const handleChange = (value: string,name: string) => {
+    setTask({
+      ...Task,
+      [name]: value,
+    });
+  };
   const SendTask = async () => {
 
-    let data: ITask = {
-      id: Task.id,
-      title: title,
-      description: description
-    }
-    edit?UpdateTask(data): AddTask(data);
+    edit?UpdateTask(Task): AddTask(Task);
     setEdit(false)
-    console.log(data);
+    console.log(Task);
     loadData();
     ResetForm();
     setIsModalVisible(false);
@@ -120,11 +126,11 @@ export const HomeScreen = () => {
 
   return (
     <BaseScreen>
-      <SearchInput
+     {/*  <SearchInput
         placeholder={'Buscador de prueba'}
         catalog={tasksList}
         textCompare={item => [item.title, item.description]}
-        result={items => console.log(items)}></SearchInput>
+        result={items => console.log(items)}></SearchInput> */}
 
       {CardList(tasksList)}
 
@@ -144,30 +150,21 @@ export const HomeScreen = () => {
               setEdit(false);
               setIsModalVisible(false);
             }}
-            butons={
-              <ButtonWithText
-                icon='rocket-outline'
-                color={colores.negro}
-                bagraundIcon='transparent'
-                title='Add Task'
-                width={'30%'}
-                anyfunction={() => openModal()}>
-
-              </ButtonWithText>}
+            
           >
 
             <InputForm
               placeholder={'Title'}
               color={colores.plomo}
               defaultValue={Task.title}
-              getValue={value => onChange(value, 'title')}></InputForm>
+              getValue={value => handleChange(value, 'title')}></InputForm>
             <InputForm
               placeholder={'Description'}
               color={colores.plomo}
               defaultValue={Task.description}
-              getValue={value => onChange(value, 'description')}></InputForm>
+              getValue={value => handleChange(value, 'description')}></InputForm>
             <ButtonWithText
-              title='Add Task'
+              title={edit?'Update Task':'Add Task'}
               width={'100%'}
               icon='rocket-outline'
               anyfunction={() => SendTask()}></ButtonWithText>

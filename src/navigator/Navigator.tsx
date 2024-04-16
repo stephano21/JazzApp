@@ -25,7 +25,7 @@ export const Navigator = () => {
   console.log(UserData.auth.access_Token);
   return (
     <>
-      { (UserData?.auth?.access_Token ?? '').length === 0 ? (
+      {status === 'notauthenticated'|| (UserData?.auth?.access_Token ?? '').length === 0 ? (
         <>
           <Stack.Navigator
             screenOptions={{

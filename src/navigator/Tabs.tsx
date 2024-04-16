@@ -21,7 +21,7 @@ const TabOptions = [
     title: 'Busqueda',
     icon: iconos.IonicIcons.lupa,
     component: NextScreen,
-  }, */
+  }, 
   {
     name: 'Tareas',
     title: 'Favoritos',
@@ -33,7 +33,7 @@ const TabOptions = [
     title: 'Perfil',
     icon: 'aperture-outline',
     component: ProfileScreen,
-  },
+  },*/
 ];
 
 export const Tabs = () => {

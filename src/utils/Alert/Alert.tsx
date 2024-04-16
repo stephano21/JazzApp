@@ -30,7 +30,7 @@ interface Options {
   message: string;
   placeholder?: string;
   imagePath?: string;
-  OkFunction?: ((value?: string | undefined) => void) | (() => void);
+  OkFunction?: ((value?: string|number | undefined) => void) | (() => void);
   CancelFunction?: ((value?: string | undefined) => void) | (() => void);
   alertOptions?: {textOption: string; functionOption: () => void}[];
 }
