@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const colores = {
   blanco: '#ffffff',
-  primario: '#eb4034',
+  primario: '#075F9D',
   primarioclaro: '#e5f5ff',
   secundario: '#f7aa21',
   darkTransparent: 'rgba(0,0,0,0.5)',
@@ -12,7 +12,8 @@ export const colores = {
   plomo: 'grey',
   plomoclaro: '#ededed80',
   rojo: '#eb4034',
-  azul: '#05299E',
+  azul: '#075F9D',
+  azulClaro:'#C7E4FF',
   verde: '#16c40c',
   rojoClaro:'#FFE7E7',
 };
@@ -98,7 +99,7 @@ export const styles = StyleSheet.create({
    */
   globalmargin: {
     flex: 1,
-    padding: 20,
+    padding: 10,
   },
   centerItems: {
     alignItems: 'center',

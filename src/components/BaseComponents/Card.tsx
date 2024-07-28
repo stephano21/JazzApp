@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
         margin: 5,
-        backgroundColor: colores.rojoClaro,
+        backgroundColor: colores.azulClaro,
     },
     content: {
         flex: 1,

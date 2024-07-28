@@ -25,13 +25,13 @@ export const AuthProvider = ({children}: any) => {
   const {postRequest, postRequestToken} = useRequest();
   const [status, setstatus] = useState<StatusTypes>('checking');
   const [UserData, setUserData] = useState<IUser>({
-    Username: '',
+    username: '',
     auth: {
       access_Token: '',
       refresh_Token: '',
     },
-    Role: '',
-    Env: '',
+    role: '',
+    env: '',
   });
 
   useEffect(() => {

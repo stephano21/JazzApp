@@ -21,12 +21,12 @@ export const ButtonWithText = ({
   anyfunction,
   title,
   disabled = false,
-  color = colores.primario,
+  color = colores.azul,
   colorTexto = colores.blanco,
   icon = '',
   width = 250,
   tamañoIcon = 25,
-  bagraundIcon = colores.primario,
+  bagraundIcon = colores.azul,
   redondo = false,
 }: Props) => {
   return (

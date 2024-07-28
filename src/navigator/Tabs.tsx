@@ -15,13 +15,13 @@ const TabOptions = [
     title: 'Inicio',
     icon: iconos.IonicIcons.home,
     component: HomeScreen,
-  },/* 
+  },
   {
-    name: 'NextScreen',
-    title: 'Busqueda',
+    name: 'TaskScreen',
+    title: 'Notas',
     icon: iconos.IonicIcons.lupa,
-    component: NextScreen,
-  }, 
+    component: TaskScreen,
+  }, /* 
   {
     name: 'Tareas',
     title: 'Favoritos',
@@ -53,7 +53,7 @@ const TabsAndroid = () => {
       barStyle={{backgroundColor: colores.blanco}}
       style={{marginBottom: 10}}
       activeColor={colores.primario}
-      activeIndicatorStyle={{backgroundColor: colores.rojoClaro, borderRadius: 20}}
+      activeIndicatorStyle={{backgroundColor: colores.azulClaro, borderRadius: 20}}
       inactiveColor={colores.plomo}>
       {TabOptions.map(({name, title, icon, component}, index) => (
         <TabAndroid.Screen

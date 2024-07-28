@@ -88,7 +88,7 @@ export const BaseViewModal = ({
           }}>
           <ButtonWithText
 
-            color={colores.rojo}
+            color={colores.primario}
             anyfunction={CloseFunction}
             width={100}
             title={'Cerrar'}></ButtonWithText>

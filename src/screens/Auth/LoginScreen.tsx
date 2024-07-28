@@ -95,7 +95,7 @@ export const LoginScreen = () => {
           }></TextButton>
 
       </View>
-      <Background></Background>
+      <Background showVersion></Background>
     </BaseScreen>
   );
 };

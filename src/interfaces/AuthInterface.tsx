@@ -12,10 +12,11 @@ export interface IRegister {
     LastName: string;
 }
 export interface IUser {
-    Username: string;
+    username: string;
+    fullName: string;
     auth: IToken;
-    Role: string;
-    Env: string;
+    role: string;
+    env: string;
 }
 export interface ILocation {
     latitude: number;
