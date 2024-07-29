@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column-reverse',
         alignItems: 'center',
         backgroundColor: colores.azulClaro,
+        elevation: 5,
     },
     iconArea: {
         marginTop: 0

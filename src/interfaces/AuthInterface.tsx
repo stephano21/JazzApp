@@ -33,6 +33,6 @@ export interface IUserRegister {
     userName: string;
     email: string;
     role?: string;
-    porfile: IUserProfile;
+    profile: IUserProfile;
     password: string;
 }

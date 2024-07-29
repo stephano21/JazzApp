@@ -19,21 +19,21 @@ const TabOptions = [
   {
     name: 'TaskScreen',
     title: 'Notas',
-    icon: iconos.IonicIcons.lupa,
+    icon: iconos.IonicIcons.libro,
     component: TaskScreen,
-  }, /* 
+  }, /*
   {
     name: 'Tareas',
     title: 'Favoritos',
-    icon: iconos.IonicIcons.favorito,
+    icon: iconos.IonicIcons.perfil,
     component: TaskScreen,
-  },
+  }, */
   {
     name: 'ProfileScreen',
     title: 'Perfil',
-    icon: 'aperture-outline',
+    icon: iconos.IonicIcons.perfil,
     component: ProfileScreen,
-  },*/
+  },
 ];
 
 export const Tabs = () => {

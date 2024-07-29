@@ -22,7 +22,7 @@ export const RegisterScreen = () => {
     userName: '',
     password: '',
     email: '',
-    porfile: {
+    profile: {
       lastName: '',
       firstName: '',
     }
@@ -99,13 +99,13 @@ export const RegisterScreen = () => {
       <InputForm
         placeholder={'Nombres'}
         color={colores.plomo}
-        defaultValue={userData.porfile.firstName}
-        getValue={value => handleChange(value, 'porfile.firstName')} />
+        defaultValue={userData.profile.firstName}
+        getValue={value => handleChange(value, 'profile.firstName')} />
       <InputForm
         color={colores.plomo}
         placeholder={'Apellidos'}
-        defaultValue={userData.porfile.lastName}
-        getValue={value => { handleChange(value, 'porfile.lastName')}} />
+        defaultValue={userData.profile.lastName}
+        getValue={value => { handleChange(value, 'profile.lastName')}} />
       <InputForm
         color={colores.plomo}
         placeholder={'Nombre de usuario'}

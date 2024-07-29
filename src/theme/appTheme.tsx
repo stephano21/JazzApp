@@ -75,6 +75,8 @@ export const iconos = {
     recibo: 'receipt',
     deshacer: 'arrow-undo',
     celular: 'cellular',
+    libro: 'book-outline',
+    usuario: 'person-circle-outline'
   },
   FontAwsome: {
     usuario: 'user-o',
@@ -185,6 +187,7 @@ export const styles = StyleSheet.create({
     color: colores.blanco,
     fontSize: 15,
     margin: '4%',
+    fontWeight:'bold',
     marginVertical: 10,
     textAlign: 'center',
   },

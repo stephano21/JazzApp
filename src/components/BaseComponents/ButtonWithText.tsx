@@ -55,7 +55,7 @@ export const ButtonWithText = ({
           
         }}>
 
-          <Icon name={icon} size={tamañoIcon} color={colores.blanco}></Icon>
+          <Icon name={icon} size={tamañoIcon} color={colorTexto}></Icon>
         </View>
       )}
       {title && (

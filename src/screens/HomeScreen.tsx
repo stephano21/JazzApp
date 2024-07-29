@@ -9,7 +9,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Counter } from '../components/CounterComponent';
 import { IScore } from '../interfaces/ScoreInteface';
 import { ButtonWithText } from '../components/BaseComponents/ButtonWithText';
-import { HomeStrings } from '../global/HomeStrings';
+import { HomeStringsEs } from '../global/HomeStrings';
 var Data: IScore[] = [
   {
     score: 12,
@@ -36,7 +36,7 @@ export const HomeScreen = () => {
   const sharedFuntion = async (message: string) => {
     await Share.open({
       message: message,
-      title: message,
+      title: "message",
       //url: FirmaB64.quemado,
       //url: `file://${peth}`,
       //type: 'application/pdf',
@@ -50,10 +50,10 @@ export const HomeScreen = () => {
     <BaseScreen>
       <>
         <View style={styles.welcome}>
-          <Text style={styles.text}>{HomeStrings.welcomeEn+UserData.fullName}</Text>
+          <Text style={styles.text}>{HomeStringsEs.welcome+UserData.fullName}</Text>
         </View>
         <Counter data={Data}></Counter>
-        <ButtonWithText title={HomeStrings.besitosButton} anyfunction={() => sharedFuntion(UserData.fullName+HomeStrings.besitosMessagge)}></ButtonWithText>
+        <ButtonWithText title={HomeStringsEs.besitosButton} anyfunction={() => sharedFuntion(UserData.fullName+HomeStrings.besitosMessagge)}></ButtonWithText>
       </>
     </BaseScreen>
   );
