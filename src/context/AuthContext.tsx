@@ -82,7 +82,7 @@ export const AuthProvider = ({children}: any) => {
       });
   }; */
 
-  const signIn = async ({username, password}: ILogin) => {
+  const signIn = async ({username, password,device}: ILogin) => {
     setstatus('authenticated');
     if (username.length === 0 || password.length === 0) {
       // If email or password not exist
@@ -95,6 +95,7 @@ export const AuthProvider = ({children}: any) => {
     const dataUsuario:ILogin = ({
       username,
       password,
+      device
     });
     await postRequest<IUser>(Endpoints.login,dataUsuario)
       .then(async Data => {

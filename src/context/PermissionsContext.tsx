@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { AppState, Platform } from 'react-native';
+import { AppState, Platform, Alert } from 'react-native';
 import {
   check,
   openSettings,
@@ -8,6 +8,7 @@ import {
   PermissionStatus,
   requestMultiple,
 } from 'react-native-permissions';
+import messaging from '@react-native-firebase/messaging';
 
 export interface PermissionsState {
   permissionAppStatus: PermissionStatus;
@@ -22,31 +23,23 @@ type PermissionsContextProps = {
 let AndroidPermissions: Permission[] = [
   PERMISSIONS.ANDROID.CAMERA,
   PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-  //PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
+  PERMISSIONS.ANDROID.POST_NOTIFICATIONS, // Agregado para permisos de notificación
 ];
+
 const androidSDKVersion = Platform.OS === 'android' ? Platform.Version : 0;
-/* if (androidSDKVersion >= 33) {
-  AndroidPermissions.push(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
-}  */
 if (androidSDKVersion <= 29) {
   AndroidPermissions.push(PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE);
 }
 if (androidSDKVersion <= 32) {
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
 }
-/* if (androidSDKVersion >= 33) {
-  AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_IMAGES);
-  AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_AUDIO);
-  AndroidPermissions.push(PERMISSIONS.ANDROID.READ_MEDIA_VIDEO);
-} */
 
 let IosPermissions: Permission[] = [PERMISSIONS.IOS.LOCATION_WHEN_IN_USE];
 
 export const PermissionsContext = createContext({} as PermissionsContextProps);
 
 export const PermissionsProvider = ({ children }: any) => {
-  const [permissions, setpermissions] =
-    useState<PermissionStatus>('unavailable');
+  const [permissions, setPermissions] = useState<PermissionStatus>('unavailable');
 
   useEffect(() => {
     AppState.addEventListener('change', state => {
@@ -54,6 +47,11 @@ export const PermissionsProvider = ({ children }: any) => {
       checkPermission();
     });
   }, []);
+
+  // Manejador de mensajes en segundo plano
+  messaging().setBackgroundMessageHandler(async remoteMessage => {
+    console.log('Mensaje en segundo plano:', remoteMessage);
+  });
 
   const askPermission = async () => {
     const permissions: Permission[] | undefined = Platform.select({
@@ -68,7 +66,7 @@ export const PermissionsProvider = ({ children }: any) => {
     );
 
     if (allGranted) {
-      setpermissions('granted');
+      setPermissions('granted');
     } else {
       openSettings();
     }
@@ -85,9 +83,9 @@ export const PermissionsProvider = ({ children }: any) => {
     );
     console.log(permissionStatuses);
     if (permissionStatuses.every(status => status === 'granted')) {
-      setpermissions('granted');
+      setPermissions('granted');
     } else {
-      setpermissions('denied');
+      setPermissions('denied');
     }
   };
 

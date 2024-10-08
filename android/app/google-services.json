@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "135278054862",
+    "project_id": "jazz-68936",
+    "storage_bucket": "jazz-68936.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135278054862:android:0232ee3ac6e535ecd5ef9f",
+        "android_client_info": {
+          "package_name": "com.jazzapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB44LRsvFkx0t1ZIG65igBYvDcuL0UGQjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

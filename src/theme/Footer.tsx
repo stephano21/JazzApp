@@ -13,24 +13,23 @@ export const Footer = () => {
   const { status, UserData } = useContext(AuthContext);
   const { hasConnection } = useContext(CheckInternetContext);
   return (
-    <>
-      {status === 'authenticated' && (
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            backgroundColor: `${colores.negro}`,
-            paddingHorizontal: '4.5%',
-          }}>
-          <IconComponent
-            style={{ position: 'absolute', left: '1%', bottom: '10%' }}
-            iconType={'IonicIcon'}
-            size={width * 0.03}
-            icon={iconos.IonicIcons.celular}
-            color={hasConnection ? 'lightgreen' : 'red'}></IconComponent>
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          backgroundColor: `${colores.primario}`,
+          paddingHorizontal: '4.5%',
+        }}>
+        <IconComponent
+          style={{ position: 'absolute', left: '1%', bottom: '10%' }}
+          iconType={'IonicIcon'}
+          size={width * 0.03}
+          icon={iconos.IonicIcons.celular}
+          color={hasConnection ? 'lightgreen' : 'red'}></IconComponent>
+        {status === 'authenticated' && (<>
           <Info
             textSize={0.02}
             textColor={colores.blanco}
@@ -46,13 +45,13 @@ export const Footer = () => {
             textColor={colores.blanco}
             property={'Rol'}
             info={UserData?.role}></Info>
-          <Info
-            textSize={0.02}
-            textColor={colores.blanco}
-            property={'Versión'}
-            info={VersionApp}></Info>
-        </View>
-      )}
-    </>
+        </>
+        )}
+        <Info
+          textSize={0.02}
+          textColor={colores.blanco}
+          property={'Versión'}
+          info={VersionApp}></Info>
+      </View>
   );
 };

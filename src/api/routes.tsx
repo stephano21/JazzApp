@@ -1,5 +1,5 @@
 export const Endpoints = {
-  BaseURL: 'https://1ff0-157-100-113-222.ngrok-free.app',
+  BaseURL: 'https://4d64-157-100-111-126.ngrok-free.app',
   BaseApi: '/api',
   login: '/auth/login/',
   register: '/auth/register/',
@@ -13,6 +13,6 @@ export const Endpoints = {
 //TODO: modificar esoto
 export const checkEnviroment =
   {
-    'https://dmspeapi.rfsdeposito.com': 'Producción',
+    'https://jazz-api.up.railway.app': 'Producción',
     'https://dmsperuapi.qa.rfsdeposito.com': 'Desarrollo',
   }[Endpoints.BaseURL] || 'Local';
