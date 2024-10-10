@@ -7,7 +7,7 @@ import {useRequest} from '../api/useRequest';
 import {IUser} from '../interfaces/AuthInterface';
 import {Alert} from '../utils/Alert/Alert';
 import { Endpoints } from '../api/routes';
-
+import messaging from '@react-native-firebase/messaging';
 type AuthContextProps = {
   status: StatusTypes;
   //signUp: (obj: CreateUser, pass: string) => Promise<void>;
@@ -108,6 +108,7 @@ export const AuthProvider = ({children}: any) => {
   };
 
   const logOut = async () => {
+    await messaging().deleteToken();
     await RemoveAllData();
     //closeConnection();
     setstatus('notauthenticated');

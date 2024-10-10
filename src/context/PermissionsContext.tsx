@@ -9,7 +9,7 @@ import {
   requestMultiple,
 } from 'react-native-permissions';
 import messaging from '@react-native-firebase/messaging';
-
+import notifee, { AndroidImportance } from '@notifee/react-native';
 export interface PermissionsState {
   permissionAppStatus: PermissionStatus;
 }
@@ -46,6 +46,32 @@ export const PermissionsProvider = ({ children }: any) => {
       if (state !== 'active') return;
       checkPermission();
     });
+    // Crear el canal para notificaciones en Android
+    notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+      importance: AndroidImportance.HIGH,
+    });
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      console.log('Mensaje en primer plano:', remoteMessage);
+  
+      if (remoteMessage.notification) {
+        // Mostrar una notificación local solo si remoteMessage.notification existe
+        await notifee.displayNotification({
+          title: remoteMessage.notification?.title || 'Título por defecto',
+          body: remoteMessage.notification?.body || 'Mensaje por defecto',
+          android: {
+            channelId: 'default',
+            importance: AndroidImportance.HIGH,
+          },
+        });
+      } else if (remoteMessage.data) {
+        // Maneja los casos en los que solo se envían datos
+        console.log('Datos recibidos:', remoteMessage.data);
+      }
+    });
+  
+    return unsubscribe;
   }, []);
 
   // Manejador de mensajes en segundo plano

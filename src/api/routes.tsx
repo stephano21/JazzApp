@@ -1,5 +1,6 @@
 export const Endpoints = {
-  BaseURL: 'https://4d64-157-100-111-126.ngrok-free.app',
+  BaseURL: 'https://179a-157-100-111-122.ngrok-free.app',
+  //BaseURL:'https://jazz-api.up.railway.app',
   BaseApi: '/api',
   login: '/auth/login/',
   register: '/auth/register/',

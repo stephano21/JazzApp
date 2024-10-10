@@ -53,7 +53,7 @@ export const HomeScreen = () => {
           <Text style={styles.text}>{HomeStringsEs.welcome+UserData.fullName}</Text>
         </View>
         <Counter data={Data}></Counter>
-        <ButtonWithText title={HomeStringsEs.besitosButton} anyfunction={() => sharedFuntion(UserData.fullName+HomeStrings.besitosMessagge)}></ButtonWithText>
+        <ButtonWithText title={HomeStringsEs.besitosButton} anyfunction={() => sharedFuntion(UserData.fullName+HomeStringsEs.besitosMessagge)}></ButtonWithText>
       </>
     </BaseScreen>
   );
