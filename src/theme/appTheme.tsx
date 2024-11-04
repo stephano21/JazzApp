@@ -1,13 +1,15 @@
 import {StyleSheet} from 'react-native';
+import { Background } from '../screens/Background';
+import { black } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
-export const colores = {
+/*export const colores = {
+  darkTransparent: 'rgba(0,0,0,0.5)',
+  darkLoader: 'rgba(0,0,0,0.75)',
+  whiteTransparent: 'rgba(255,255,255,0.8)',
   blanco: '#ffffff',
   primario: '#075F9D',
   primarioclaro: '#e5f5ff',
   secundario: '#f7aa21',
-  darkTransparent: 'rgba(0,0,0,0.5)',
-  darkLoader: 'rgba(0,0,0,0.75)',
-  whiteTransparent: 'rgba(255,255,255,0.8)',
   negro: '#000000',
   plomo: 'grey',
   plomoclaro: '#ededed80',
@@ -16,6 +18,24 @@ export const colores = {
   azulClaro:'#C7E4FF',
   verde: '#16c40c',
   rojoClaro:'#FFE7E7',
+  accent : '#4CAF50',
+};*/
+export const colores = {
+  darkTransparent: 'rgba(0,0,0,0.5)',
+  darkLoader: 'rgba(0,0,0,0.75)',
+  whiteTransparent: 'rgba(255,255,255,0.8)',
+  primary: '#075F9D',       // Primary color
+  secondary: '#F0A500',     // Secondary color
+  accent: '#1CB5E0',        // Accent color
+  background: '#F5F5F5',    // Background color
+  textPrimary: '#FFFFFF',   // Primary text color
+  textSecondary: '#404040', // Secondary text color
+  success: '#4CAF50',       // Success color
+  error: '#E53935',         // Error color
+  inactive: '#A9A9A9',
+  black: '#000000',
+  inactiveLight: '#ededed80',
+  primaryLight:'#C7E4FF',
 };
 
 export const iconos = {
@@ -116,7 +136,7 @@ export const styles = StyleSheet.create({
   },
 
   menuText: {
-    color: colores.blanco,
+    color: colores.background,
     fontSize: 16,
   },
   /**
@@ -153,7 +173,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     width: '100%',
-    backgroundColor: colores.blanco,
+    backgroundColor: colores.background,
     borderWidth: 1,
     borderColor: 'grey',
     borderRadius: 10,
@@ -163,13 +183,14 @@ export const styles = StyleSheet.create({
    */
   selector: {
     margin: 5,
-    backgroundColor: colores.blanco,
+    backgroundColor: colores.background
+    ,
     borderWidth: 0.3,
-    borderColor: colores.primario,
+    borderColor: colores.primary,
     borderRadius: 25,
   },
   sombra: {
-    backgroundColor: colores.blanco,
+    backgroundColor: colores.background,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -184,7 +205,7 @@ export const styles = StyleSheet.create({
    * @TextButton
    */
   textButton: {
-    color: colores.blanco,
+    color: colores.textPrimary,
     fontSize: 15,
     margin: '4%',
     fontWeight:'bold',
@@ -192,7 +213,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   textButtonBold: {
-    color: colores.primario,
+    color: colores.textPrimary,
     fontWeight: 'bold',
     fontSize: 18,
     padding: '5%',
@@ -200,7 +221,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   textAlertButton: {
-    color: colores.primario,
+    color: colores.textPrimary,
     fontWeight: 'bold',
     fontSize: 18,
     padding: '5%',
@@ -211,16 +232,16 @@ export const styles = StyleSheet.create({
    * @Text
    */
   textTitle: {
-    color: colores.blanco,
+    color: colores.textPrimary,
     fontSize: 18,
   },
   textBold: {
-    color: colores.primario,
+    color: colores.textPrimary,
     fontWeight: 'bold',
     fontSize: 15,
   },
   textData: {
-    color: colores.negro,
+    color: colores.primary,
     fontWeight: '400',
     fontSize: 14,
   },

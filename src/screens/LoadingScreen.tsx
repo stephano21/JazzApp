@@ -8,7 +8,7 @@ export const LoadingScreen = () => {
       source={require('../assets/Loader/Loader-FullScreen.json')}
       speed={1.75}
       autoPlay
-      style={{flex: 1, backgroundColor: colores.blanco}}
+      style={{flex: 1, backgroundColor: colores.background}}
       loop></LottieView>
   );
 };

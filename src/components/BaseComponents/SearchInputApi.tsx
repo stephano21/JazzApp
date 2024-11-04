@@ -45,7 +45,7 @@ export const SearchInputApi = ({
       <View style={styles.textBackground}>
         <TextInput
           placeholder={placeholder}
-          placeholderTextColor={colores.plomo}
+          placeholderTextColor={colores.inactive}
           style={{
             ...styles.textInput,
             top: Platform.OS === 'ios' ? 0 : 2,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red'
   },
   textBackground: {
-    backgroundColor: colores.plomoclaro,
+    backgroundColor: colores.inactiveLight,
     borderRadius: 50,
     paddingHorizontal: 18,
     justifyContent: 'space-between',

@@ -24,14 +24,14 @@ export const SwitchForm = ({
         margin: 10,
         width: width * 0.8,
         borderBottomWidth: 0.5,
-        borderBottomColor: colores.primarioclaro,
+        borderBottomColor: colores.primaryLight,
       }}>
       <Text style={{...styles.textData}}>{placeholder}</Text>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Text style={{...styles.textData}}>No</Text>
         <Switch
           style={{marginHorizontal: 10}}
-          trackColor={{false: '#767577', true: colores.secundario}}
+          trackColor={{false: '#767577', true: colores.secondary}}
           thumbColor={'#f4f3f4'}
           ios_backgroundColor="#3e3e3e"
           onValueChange={() => setvalue(!value)}

@@ -10,7 +10,7 @@ interface Props {
 
 export const AlertButton = ({
   anyFunction,
-  color = colores.verde,
+  color = colores.success,
   textOption = '',
 }: Props) => {
   const borderWidth = 0.3;

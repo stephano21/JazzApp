@@ -11,7 +11,7 @@ export const RecoveryPasswordScreen = () => {
     <BaseScreen style={{justifyContent: 'center'}}>
       <Text
         style={{
-          color: colores.plomo,
+          color: colores.inactive,
           fontSize: 20,
           marginBottom: '5%',
           maxWidth: 350,

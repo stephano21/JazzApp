@@ -48,7 +48,7 @@ export const AlertBaseModal = ({
             ...styles.textTitle,
             marginTop: 5,
             textAlign: 'center',
-            color: colores.plomo,
+            color: colores.inactive,
             fontWeight: '300',
           }}>
           {title}
@@ -58,7 +58,7 @@ export const AlertBaseModal = ({
             ...styles.textButton,
             marginBottom: 15,
             //marginBottom: 20,
-            color: colores.negro,
+            color: colores.black,
             textAlign: 'center',
           }}>
           {message}

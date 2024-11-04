@@ -31,11 +31,11 @@ export const Navigator = () => {
             screenOptions={{
               headerShown: true,
               headerStyle: {
-                backgroundColor: colores.azul,
+                backgroundColor: colores.primary,
               },
-              headerTintColor: colores.blanco,
+              headerTintColor: colores.background,
               cardStyle: {
-                backgroundColor: colores.blanco,
+                backgroundColor: colores.background,
               },
             }}>
             <Stack.Screen
@@ -72,11 +72,11 @@ export const Navigator = () => {
                   screenOptions={{
                     headerShown: true,
                     headerStyle: {
-                      backgroundColor: colores.azul,
+                      backgroundColor: colores.secondary,
                     },
-                    headerTintColor: colores.blanco,
+                    headerTintColor: colores.secondary,
                     cardStyle: {
-                      backgroundColor: colores.plomoclaro,
+                      backgroundColor: colores.background,
                     },
                   }}>
                   <Stack.Screen

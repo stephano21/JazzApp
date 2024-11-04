@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View, DimensionValue } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colores, styles } from '../../theme/appTheme';
 import { RadioButton } from 'react-native-paper';
@@ -10,7 +10,7 @@ interface Props {
   color?: string;
   colorTexto?: string;
   icon?: string;
-  width?: number | string;
+  width?: DimensionValue | undefined;
   bagraundIcon?: string;
   tamañoIcon?: number;
   redondo?: boolean;
@@ -21,39 +21,39 @@ export const ButtonWithText = ({
   anyfunction,
   title,
   disabled = false,
-  color = colores.azul,
-  colorTexto = colores.blanco,
+  color = colores.primary,
+  colorTexto = colores.textPrimary,
   icon = '',
   width = 250,
   tamañoIcon = 25,
-  bagraundIcon = colores.azul,
+  bagraundIcon = colores.primary,
   redondo = false,
 }: Props) => {
   return (
     <TouchableOpacity
-      activeOpacity={disabled?1:0.9}
-      onPress={disabled?()=>{}:anyfunction}
+      activeOpacity={disabled ? 1 : 0.9}
+      onPress={disabled ? () => { } : anyfunction}
       style={{
         marginVertical: 14,
         ...styles.centerItems,
         //...styles.sombra,
-        backgroundColor: disabled?colores.plomo:color,
+        backgroundColor: disabled ? colores.primary : color,
         borderRadius: 10,
         alignSelf: 'center',
         flexDirection: 'row',
         width,
-        
+
       }}>
       {icon.length > 0 && (
         <View
-        style={{
-          padding: 4,
-          width: '25%',
-          ...styles.centerItems,
-          borderRadius: redondo ? 40 : 0,
-          backgroundColor: bagraundIcon,
-          
-        }}>
+          style={{
+            padding: 4,
+            width: '25%',
+            ...styles.centerItems,
+            borderRadius: redondo ? 40 : 0,
+            backgroundColor: bagraundIcon,
+
+          }}>
 
           <Icon name={icon} size={tamañoIcon} color={colorTexto}></Icon>
         </View>

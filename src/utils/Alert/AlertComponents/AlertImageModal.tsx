@@ -42,11 +42,11 @@ export const AlertImageModal = ({
       <View style={{flexDirection: 'row'}}>
         <AlertButton
           textOption="Cancelar"
-          color={colores.rojo}
+          color={colores.error}
           anyFunction={CloseFunction}></AlertButton>
         <AlertButton
           textOption="Aceptar"
-          color={colores.azul}
+          color={colores.primary}
           anyFunction={OkFunction}></AlertButton>
       </View>
     </AlertBaseModal>

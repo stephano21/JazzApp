@@ -24,7 +24,7 @@ export const AlertMultioptionsModal = ({
         {options.map(({textOption, functionOption}, index) => (
           <AlertButton
             key={index}
-            color={colores.azul}
+            color={colores.primary}
             textOption={textOption}
             anyFunction={() => {
               functionOption();
@@ -32,7 +32,7 @@ export const AlertMultioptionsModal = ({
             }}></AlertButton>
         ))}
         <AlertButton
-          color={colores.rojo}
+          color={colores.error}
           textOption={'Cancelar'}
           anyFunction={CloseFunction}></AlertButton>
       </View>

@@ -25,8 +25,8 @@ interface Props {
 
 export const InputForm = ({
   placeholder,
-  color = colores.plomoclaro,
-  backgroundColor = colores.plomoclaro,
+  color = colores.inactive,
+  backgroundColor = colores.inactiveLight,
   defaultValue = '',
   getValue,
   isEditable = true,
@@ -47,8 +47,8 @@ export const InputForm = ({
       mode={'outlined'}
       theme={{
         colors: {
-          background: colores.plomoclaro,
-          onSurfaceVariant: colores.plomo,
+          background: colores.inactiveLight,
+          onSurfaceVariant: colores.inactive,
         },
       }}
       style={{
@@ -88,8 +88,8 @@ export const InputForm = ({
       outlineColor={color}
       underlineColor={color}
       selectionColor={color}
-      activeOutlineColor={colores.azul}
-      cursorColor={colores.plomo}
+      activeOutlineColor={colores.primary}
+      cursorColor={colores.inactive}
       label={placeholder}
       autoCapitalize={
         keyboard === 'email-address' || securetextentry ? 'none' : undefined

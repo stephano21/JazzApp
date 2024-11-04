@@ -20,7 +20,7 @@ export const Footer = () => {
           width: '100%',
           flexDirection: 'row',
           justifyContent: 'space-between',
-          backgroundColor: `${colores.primario}`,
+          backgroundColor: `${colores.primary}`,
           paddingHorizontal: '4.5%',
         }}>
         <IconComponent
@@ -32,24 +32,24 @@ export const Footer = () => {
         {status === 'authenticated' && (<>
           <Info
             textSize={0.02}
-            textColor={colores.blanco}
+            textColor={colores.textPrimary}
             property={'Ambiente'}
             info={checkEnviroment}></Info>
           <Info
             textSize={0.02}
-            textColor={colores.blanco}
+            textColor={colores.textPrimary}
             property={'Usuario'}
             info={UserData?.username}></Info>
           <Info
             textSize={0.02}
-            textColor={colores.blanco}
+            textColor={colores.textPrimary}
             property={'Rol'}
             info={UserData?.role}></Info>
         </>
         )}
         <Info
           textSize={0.02}
-          textColor={colores.blanco}
+          textColor={colores.textPrimary}
           property={'Versión'}
           info={VersionApp}></Info>
       </View>

@@ -21,7 +21,7 @@ export const BaseScreen = ({children, style = {}, isScroll = false, alignItems="
       style={{
         opacity,
         flex: 1,
-        backgroundColor: colores.blanco,
+        backgroundColor: colores.background,
       }}>
       {isScroll ? (
         <ScrollView

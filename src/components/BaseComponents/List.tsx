@@ -36,7 +36,7 @@ export const List = <T extends unknown>({
       onEndReached={loadMore}
       onEndReachedThreshold={0.5}
       ListEmptyComponent={
-        <Text style={{...styles.textData, color: colores.plomo, fontSize: 20}}>
+        <Text style={{...styles.textData, color: colores.inactive, fontSize: 20}}>
           {ListEmptyText}
         </Text>
       }></FlatList>

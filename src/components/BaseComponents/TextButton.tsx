@@ -9,7 +9,7 @@ interface Props {
 export const TextButton = ({
   title,
   anyfunction,
-  color = colores.azul,
+  color = colores.primary,
 }: Props) => {
   return (
     <TouchableOpacity

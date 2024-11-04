@@ -25,12 +25,12 @@ export const ItemRadioButton = ({
         margin: 10,
         width: width * 0.75,
         borderBottomWidth: 0.5,
-        borderBottomColor: colores.primarioclaro,
+        borderBottomColor: colores.primaryLight,
       }}>
       <Text style={{...styles.textData}}>{placeholder}</Text>
       <RadioButton
         value={value ? 'checked' : 'uncheked'}
-        color={colores.secundario}
+        color={colores.secondary}
         status={value ? 'checked' : 'unchecked'}
         onPress={() => {
           setVheck(!value);

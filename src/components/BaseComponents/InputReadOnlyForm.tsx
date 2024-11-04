@@ -13,7 +13,7 @@ interface Props {
 export const InputReadOnlyForm = ({
   value,
   onPress,
-  color = colores.primario,
+  color = colores.primary,
   placeholder = '',
 }: Props) => {
   const {width} = useWindowDimensions();
@@ -27,12 +27,12 @@ export const InputReadOnlyForm = ({
         editable={false}
         style={{
           flex: 1,
-          color: colores.negro,
+          color: colores.black,
           fontWeight: 'bold',
           textAlign: 'center',
           justifyContent: 'center',
           fontSize: 16,
-          backgroundColor: colores.blanco,
+          backgroundColor: colores.background,
         }}
         contentStyle={{textAlign: 'center', justifyContent: 'center'}}
         label={placeholder}
@@ -43,7 +43,7 @@ export const InputReadOnlyForm = ({
         selectionColor={color}
         activeOutlineColor={color}
         placeholder={placeholder}
-        placeholderTextColor={colores.plomo}
+        placeholderTextColor={colores.inactive}
         value={value}></TextInput>
     </TouchableOpacity>
   );

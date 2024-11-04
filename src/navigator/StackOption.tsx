@@ -19,27 +19,27 @@ export const StackOption = ({
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: isfocused ? colores.primarioclaro : colores.blanco,
+        backgroundColor: isfocused ? colores.primary : colores.background,
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
         padding: 10,
         borderRadius: 5,
         borderBottomWidth: 1,
-        borderBottomColor: colores.primarioclaro,
+        borderBottomColor: colores.primary,
       }}
       onPress={() => action()}>
       <IconComponent
         icon={icono}
         size={20}
-        color={colores.primario}
+        color={colores.primary}
         style={{marginRight: 10}}
         iconType={'IonicIcon'}
       />
       <Text
         style={{
           ...styles.menuText,
-          color: colores.primario,
+          color: colores.textPrimary,
           fontWeight: isfocused ? 'bold' : '300',
         }}>
         {tituloItem}

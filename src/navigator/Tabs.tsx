@@ -50,11 +50,11 @@ const TabsAndroid = () => {
   return (
     <TabAndroid.Navigator
       sceneAnimationEnabled={true}
-      barStyle={{backgroundColor: colores.blanco}}
+      barStyle={{backgroundColor: colores.background}}
       style={{marginBottom: 10}}
-      activeColor={colores.primario}
-      activeIndicatorStyle={{backgroundColor: colores.azulClaro, borderRadius: 20}}
-      inactiveColor={colores.plomo}>
+      activeColor={colores.primary}
+      activeIndicatorStyle={{backgroundColor: colores.primaryLight, borderRadius: 20}}
+      inactiveColor={colores.inactive}>
       {TabOptions.map(({name, title, icon, component}, index) => (
         <TabAndroid.Screen
           key={index}
@@ -62,7 +62,7 @@ const TabsAndroid = () => {
           options={{
             title,
             tabBarIcon: () => (
-              <Icon name={icon} size={25} color={colores.primario} />
+              <Icon name={icon} size={25} color={colores.primary} />
             ),
           }}
           component={component}
@@ -84,7 +84,7 @@ const TabsIOS = () => {
           options={{
             title,
             tabBarIcon: () => (
-              <Icon name={icon} size={25} color={colores.secundario} />
+              <Icon name={icon} size={25} color={colores.secondary} />
             ),
           }}
           component={component}

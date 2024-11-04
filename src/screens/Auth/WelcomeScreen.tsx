@@ -26,7 +26,7 @@ export const WelcomeScreen = () => {
       <Text
         style={{
           textAlign: 'justify',
-          color: colores.negro,
+          color: colores.black,
           maxWidth: 300,
           marginBottom: 30,
         }}>

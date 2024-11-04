@@ -98,33 +98,33 @@ export const RegisterScreen = () => {
         }}></Image>
       <InputForm
         placeholder={'Nombres'}
-        color={colores.plomo}
+        color={colores.inactive}
         defaultValue={userData.profile.firstName}
         getValue={value => handleChange(value, 'profile.firstName')} />
       <InputForm
-        color={colores.plomo}
+        color={colores.inactive}
         placeholder={'Apellidos'}
         defaultValue={userData.profile.lastName}
         getValue={value => { handleChange(value, 'profile.lastName')}} />
       <InputForm
-        color={colores.plomo}
+        color={colores.inactive}
         placeholder={'Nombre de usuario'}
         defaultValue={userData.userName}
         getValue={value => { handleChange(value, 'username')}} />
       <InputForm
-        color={colores.plomo}
+        color={colores.inactive}
         keyboard={'email-address'}
         placeholder={'Email'}
         defaultValue={userData.email}
         getValue={value => { handleChange(value, 'email')}} />
       <InputForm
-        color={colores.plomo}
+        color={colores.inactive}
         securetextentry={true}
         placeholder={'Contraseña'}
         defaultValue={password}
         getValue={value => { handleChangePassword(value)}} />
       <InputForm
-        color={colores.plomo}
+        color={colores.inactive}
         securetextentry={true}
         placeholder={'Confirmar Contraseña'}
         defaultValue={confirmPassword}

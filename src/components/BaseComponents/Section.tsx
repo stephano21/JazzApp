@@ -30,8 +30,8 @@ export const Section = ({
         activeOpacity={0.8}
         onPress={() => setsectionVisible(!sectionVisible)}
         style={{
-          backgroundColor: colores.blanco,
-          borderColor: complete ? colores.verde : colores.rojo,
+          //backgroundColor: colores.background,
+          borderColor: complete ? colores.success : colores.error,
           borderWidth: 0.5,
           width: width * 0.9,
           flexDirection: 'row',
@@ -42,13 +42,13 @@ export const Section = ({
           ...styles.sombra,
         }}>
         <Icon
-          name={complete ? iconos.visto : iconos.equis}
+          name={complete ? iconos.IonicIcons.visto : iconos.IonicIcons.equis}
           size={30}
-          color={complete ? colores.verde : colores.rojo}></Icon>
+          color={complete ? colores.success : colores.error}></Icon>
         <Text
           style={{
             ...styles.textBold,
-            color: colores.plomo,
+            color: colores.inactive,
             fontSize: width * 0.035,
             textTransform: 'uppercase',
             letterSpacing: 0.8,
@@ -56,9 +56,9 @@ export const Section = ({
           {title}
         </Text>
         <Icon
-          name={sectionVisible && enable ? iconos.arriba : iconos.abajo}
+          name={sectionVisible && enable ? iconos.IonicIcons.arriba : iconos.IonicIcons.abajo}
           size={25}
-          color={colores.primario}></Icon>
+          color={colores.primary}></Icon>
       </TouchableOpacity>
       {sectionVisible && enable && (
         <View style={{...styles.centerItems, marginBottom: 15}}>

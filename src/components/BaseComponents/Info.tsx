@@ -12,7 +12,7 @@ interface Props {
 export const Info = ({
   property,
   info,
-  textColor = colores.plomo,
+  textColor = colores.inactive,
   textSize = 0.03,
 }: Props) => {
   const {width} = useWindowDimensions();

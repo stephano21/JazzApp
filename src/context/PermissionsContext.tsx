@@ -23,7 +23,7 @@ type PermissionsContextProps = {
 let AndroidPermissions: Permission[] = [
   PERMISSIONS.ANDROID.CAMERA,
   PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-  PERMISSIONS.ANDROID.POST_NOTIFICATIONS, // Agregado para permisos de notificación
+  // Agregado para permisos de notificación
 ];
 
 const androidSDKVersion = Platform.OS === 'android' ? Platform.Version : 0;
@@ -32,6 +32,10 @@ if (androidSDKVersion <= 29) {
 }
 if (androidSDKVersion <= 32) {
   AndroidPermissions.push(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+}
+if (androidSDKVersion >= 33) {
+  AndroidPermissions.push(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
+
 }
 
 let IosPermissions: Permission[] = [PERMISSIONS.IOS.LOCATION_WHEN_IN_USE];
@@ -54,7 +58,7 @@ export const PermissionsProvider = ({ children }: any) => {
     });
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       console.log('Mensaje en primer plano:', remoteMessage);
-  
+
       if (remoteMessage.notification) {
         // Mostrar una notificación local solo si remoteMessage.notification existe
         await notifee.displayNotification({
@@ -70,7 +74,7 @@ export const PermissionsProvider = ({ children }: any) => {
         console.log('Datos recibidos:', remoteMessage.data);
       }
     });
-  
+
     return unsubscribe;
   }, []);
 
@@ -107,7 +111,8 @@ export const PermissionsProvider = ({ children }: any) => {
     const permissionStatuses = await Promise.all(
       permissions!.map(async permission => await check(permission)),
     );
-    console.log(permissionStatuses);
+    console.log(AndroidPermissions)
+    console.log("hello:", permissionStatuses);
     if (permissionStatuses.every(status => status === 'granted')) {
       setPermissions('granted');
     } else {

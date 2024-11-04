@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
         margin: 5,
-        backgroundColor: colores.azulClaro,
+        backgroundColor: colores.secondary,
     },
     content: {
         flex: 1,
@@ -43,16 +43,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 5,
-        color: colores.negro,
+        color: colores.textPrimary,
 
     },
     description: {
         fontSize: 16,
-        color: colores.negro,
+        color: colores.textSecondary,
     },
     sindescription: {
         fontSize: 16,
-        color: colores.plomo,
+        color: colores.inactive,
         fontStyle:"italic",
     },
 });

@@ -56,7 +56,7 @@ export const DynamicTable = <T,>({
           <Text
             style={{
               ...styles.textBold,
-              color: colores.negro,
+              color: colores.black,
             }}>
             {column.title}
           </Text>
@@ -78,7 +78,7 @@ export const DynamicTable = <T,>({
           ]}>
           <Text
             style={{
-              color: colores.negro,
+              color: colores.black,
             }}>
             {rowData[column.key] as React.ReactNode}
           </Text>

@@ -21,7 +21,7 @@ export const SplashScreen = () => {
       style={{
         flex: 1,
         ...styles.centerItems,
-        backgroundColor: colores.primario,
+        backgroundColor: colores.background,
       }}>
       <Animated.Image
         source={require('../assets/logo.png')}

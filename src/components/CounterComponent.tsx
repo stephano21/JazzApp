@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const Counter = ({
-    colorScore= colores.azul,
+    colorScore= colores.primary,
     data = [],
     itemsPerRow = 4
 }: Props) => {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         margin: 2,
         flexDirection: 'column-reverse',
         alignItems: 'center',
-        backgroundColor: colores.azulClaro,
+        backgroundColor: colores.primaryLight,
         elevation: 5,
     },
     iconArea: {
@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
         marginTop: 0,
         width: '100%',
         padding: 0,
-        backgroundColor: colores.azul
+        backgroundColor: colores.primary
     },
     label: {
-        color: colores.blanco,
+        color: colores.textPrimary,
         fontSize: 15,
         textAlign: 'center',
     },
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     },
     sindescription: {
         fontSize: 16,
-        color: colores.plomo,
+        color: colores.inactive,
         fontStyle: "italic",
     },
 });

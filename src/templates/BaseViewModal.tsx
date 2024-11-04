@@ -88,7 +88,7 @@ export const BaseViewModal = ({
           }}>
           <ButtonWithText
 
-            color={colores.primario}
+            color={colores.primary}
             anyfunction={CloseFunction}
             width={100}
             title={'Cerrar'}></ButtonWithText>
@@ -107,7 +107,7 @@ const HeaderStyle = StyleSheet.create({
 
   },
   Texto: {
-    color: colores.negro,
+    color: colores.black,
     fontSize: 20,
     fontFamily: "Arial",
     fontWeight: 'bold',

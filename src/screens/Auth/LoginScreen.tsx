@@ -7,7 +7,6 @@ import { ButtonWithText } from '../../components/BaseComponents/ButtonWithText';
 import { BaseScreen } from '../../templates/BaseScreen';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Background } from '../Background';
-import DeviceInfo from 'react-native-device-info';
 import { InputForm } from '../../components/BaseComponents/InputForm';
 import { TextButton } from '../../components/BaseComponents/TextButton';
 import { getDeviceData } from '../../helpers/VersionApp';
@@ -48,7 +47,7 @@ export const LoginScreen = () => {
           }}></Image>
         <Text
           style={{
-            color: colores.primario,
+            color: colores.primary,
             fontWeight: 'bold',
             marginBottom: '5%',
             fontSize: 25,
@@ -64,11 +63,11 @@ export const LoginScreen = () => {
         <InputForm
           placeholder={'Contraseña'}
           securetextentry={true}
-          color={colores.plomo}
+          color={colores.inactive}
           defaultValue={password}
           getValue={value => onChange(value, 'password')}></InputForm>
         <ButtonWithText
-          color={colores.primario}
+          color={colores.primary}
           width={'100%'}
           anyfunction={() => Login()}
           title={'INICIAR SESIÓN'}></ButtonWithText>

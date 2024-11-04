@@ -158,17 +158,18 @@ export const TaskScreen = () => {
 
                         <InputForm
                             placeholder={'Title'}
-                            color={colores.plomo}
+                            color={colores.inactive}
                             defaultValue={Task.title}
                             getValue={value => handleChange(value, 'title')}></InputForm>
                         <InputForm
                             placeholder={'Description'}
-                            color={colores.plomo}
+                            color={colores.inactive}
                             defaultValue={Task.description}
                             getValue={value => handleChange(value, 'description')}></InputForm>
                         <ButtonWithText
                             title={edit ? 'Update Task' : 'Add Task'}
                             width={'100%'}
+                            redondo
                             icon='rocket-outline'
                             anyfunction={() => SendTask()}></ButtonWithText>
                     </BaseViewModal>
@@ -182,7 +183,7 @@ const lecturasStyles = StyleSheet.create({
         height: '90%',
         flex: 1,
         marginBottom: 10,
-        backgroundColor: colores.azulClaro,
+        backgroundColor: colores.accent,
         borderRadius: 10,
 
     },
@@ -192,7 +193,7 @@ const lecturasStyles = StyleSheet.create({
         marginHorizontal: 5,
         marginLeft: 20,
         padding: 5,
-        color: colores.negro,
+        color: colores.black,
     },
     routeEmpty: {
         fontSize: 11,
@@ -200,14 +201,14 @@ const lecturasStyles = StyleSheet.create({
         marginHorizontal: 5,
         marginLeft: 20,
         padding: 5,
-        color: colores.negro,
+        color: colores.black,
         fontStyle: "italic",
     },
     routeCod: {
         fontSize: 16,
         fontWeight: "bold",
         marginBottom: 4,
-        color: colores.negro,
+        color: colores.black,
         marginTop: 5,
     },
 });

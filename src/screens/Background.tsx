@@ -29,7 +29,7 @@ export const Background = ({showVersion = false, hasHeader = true}: Props) => {
           }}>
           <Text
             style={{
-              color: colores.blanco,
+              color: colores.background,
               fontSize: 18,
               fontFamily: 'KlavikaBold',
             }}>
@@ -43,7 +43,7 @@ export const Background = ({showVersion = false, hasHeader = true}: Props) => {
         viewBox={'0 0 400 50'}
         style={{position: 'absolute', bottom: 0}}>
         <Path
-          fill={colores.primario}
+          fill={colores.primary}
           d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
         />
       </Svg>

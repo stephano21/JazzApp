@@ -19,7 +19,7 @@ export const AlertModal = ({
       CloseFunction={CloseFunction}>
       <View style={{flexDirection: 'row', width: '100%'}}>
         <AlertButton
-          color={colores.azul}
+          color={colores.primary}
           textOption="Aceptar"
           anyFunction={CloseFunction}></AlertButton>
       </View>

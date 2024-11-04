@@ -34,7 +34,7 @@ export const IconComponent = ({
   iconType,
   icon,
   size = 20,
-  color = colores.primario,
+  color = colores.primary,
   style,
 }: IconProps) => {
   const IconLibrary = iconLibraries[iconType];
